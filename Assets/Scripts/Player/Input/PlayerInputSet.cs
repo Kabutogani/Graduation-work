@@ -14,6 +14,9 @@ public class PlayerInputSet : MonoBehaviour, IDisposable
     private ReadOnlyReactiveProperty<Vector2> _horizontal = default;
     public IReadOnlyReactiveProperty<Vector2> Horizontal => _horizontal;
 
+    private ReadOnlyReactiveProperty<bool> _tab = default;
+    public IReadOnlyReactiveProperty<bool> Tab => _tab;
+
     private void OnEnable(){
         _inputAction.Enable();
     }
@@ -27,19 +30,18 @@ public class PlayerInputSet : MonoBehaviour, IDisposable
     }
 
     private void Awake(){
+        instance = this;
+        
         _inputAction = _inputActionAsset.FindActionMap("Player");
-        _horizontal = _inputAction.FindAction("Move").GetVector2Property();
 
-        if(instance == null){
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }else{
-            Destroy(gameObject);
-        }
+        _horizontal = _inputAction.FindAction("Move").GetVector2Property();
+        _tab = _inputAction.FindAction("Tab").GetButtonProperty();
     }
 
     public void Dispose()
     {
         _inputAction?.Dispose();
+        _horizontal?.Dispose();
+        _tab?.Dispose();
     }
 }

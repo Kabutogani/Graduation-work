@@ -11,6 +11,14 @@ public static class PlayerInputExtension
             h => inputAction.performed += h,
             h => inputAction.performed -= h)
             .Select(x => x.ReadValue<Vector2>())
-            .ToReadOnlyReactiveProperty(new Vector2(0,0));
+            .ToReadOnlyReactiveProperty();
+    }
+
+    public static ReadOnlyReactiveProperty<bool> GetButtonProperty(this InputAction inputAction){
+        return Observable.FromEvent<InputAction.CallbackContext>(
+            h => inputAction.performed += h,
+            h => inputAction.performed -= h)
+            .Select(x => x.ReadValueAsButton())
+            .ToReadOnlyReactiveProperty(false);
     }
 }

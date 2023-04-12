@@ -868,6 +868,12 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""KeyConfig"",
+            ""id"": ""94048e46-4984-446f-9a42-8294a2830b6f"",
+            ""actions"": [],
+            ""bindings"": []
         }
     ],
     ""controlSchemes"": [
@@ -896,6 +902,8 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
         m_UI_RightClick = m_UI.FindAction("RightClick", throwIfNotFound: true);
         m_UI_TrackedDevicePosition = m_UI.FindAction("TrackedDevicePosition", throwIfNotFound: true);
         m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
+        // KeyConfig
+        m_KeyConfig = asset.FindActionMap("KeyConfig", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1113,6 +1121,31 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
         }
     }
     public UIActions @UI => new UIActions(this);
+
+    // KeyConfig
+    private readonly InputActionMap m_KeyConfig;
+    private IKeyConfigActions m_KeyConfigActionsCallbackInterface;
+    public struct KeyConfigActions
+    {
+        private @PlayerInputs m_Wrapper;
+        public KeyConfigActions(@PlayerInputs wrapper) { m_Wrapper = wrapper; }
+        public InputActionMap Get() { return m_Wrapper.m_KeyConfig; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(KeyConfigActions set) { return set.Get(); }
+        public void SetCallbacks(IKeyConfigActions instance)
+        {
+            if (m_Wrapper.m_KeyConfigActionsCallbackInterface != null)
+            {
+            }
+            m_Wrapper.m_KeyConfigActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+            }
+        }
+    }
+    public KeyConfigActions @KeyConfig => new KeyConfigActions(this);
     private int m_PlayerControlSchemeSchemeIndex = -1;
     public InputControlScheme PlayerControlSchemeScheme
     {
@@ -1141,5 +1174,8 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
         void OnRightClick(InputAction.CallbackContext context);
         void OnTrackedDevicePosition(InputAction.CallbackContext context);
         void OnTrackedDeviceOrientation(InputAction.CallbackContext context);
+    }
+    public interface IKeyConfigActions
+    {
     }
 }

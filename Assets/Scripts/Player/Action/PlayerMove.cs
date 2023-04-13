@@ -18,7 +18,7 @@ public class PlayerMove : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody>();
         _playerInputSet = PlayerInputSet.instance;
         this.UpdateAsObservable().Where(_ => _playerInputSet.Horizontal.Value != new Vector2(0,0)).Subscribe(_ => Move(_playerInputSet.Horizontal.Value));
-        _playerInputSet.Tab.Subscribe(x => CameraMove.ChangePOVCursorMode(!x)).AddTo(this);
+        //_playerInputSet.Tab.Subscribe(x => CameraMove.ChangePOVCursorMode(!x)).AddTo(this);
     }
 
     void Move(Vector2 vector){

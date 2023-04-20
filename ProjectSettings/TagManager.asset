@@ -11,10 +11,10 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Stage/Normal
+  - Stage/RaypPenetration
+  - AI/Searchable
+  - AI/Searcher
   - 
   - 
   - 

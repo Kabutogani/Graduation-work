@@ -23,4 +23,8 @@ public class Interactor : MonoBehaviour
     void OnTriggerExit(Collider collider){
         isInArea = false;
     }
+
+    void ShootRay(){
+        
+    }
 }

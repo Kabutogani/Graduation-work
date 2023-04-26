@@ -15,8 +15,8 @@ TagManager:
   - Stage/RaypPenetration
   - AI/Searchable
   - AI/Searcher
-  - 
-  - 
+  - Interact/Interactor
+  - Interact/Interactable
   - 
   - 
   - 

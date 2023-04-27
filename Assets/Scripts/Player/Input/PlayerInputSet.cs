@@ -17,6 +17,9 @@ public class PlayerInputSet : MonoBehaviour, IDisposable
     private ReadOnlyReactiveProperty<bool> _tab = default;
     public IReadOnlyReactiveProperty<bool> Tab => _tab;
 
+    private ReadOnlyReactiveProperty<bool> _interact = default;
+    public IReadOnlyReactiveProperty<bool> Interact => _interact;
+
     private void OnEnable(){
         _inputAction.Enable();
     }
@@ -36,6 +39,7 @@ public class PlayerInputSet : MonoBehaviour, IDisposable
 
         _horizontal = _inputAction.FindAction("Move").GetVector2Property();
         _tab = _inputAction.FindAction("Tab").GetButtonProperty();
+        _interact = _inputAction.FindAction("Interact").GetButtonProperty();
     }
 
     public void Dispose()
@@ -43,5 +47,6 @@ public class PlayerInputSet : MonoBehaviour, IDisposable
         _inputAction?.Dispose();
         _horizontal?.Dispose();
         _tab?.Dispose();
+        _interact?.Dispose();
     }
 }

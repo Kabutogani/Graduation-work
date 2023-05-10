@@ -14,22 +14,24 @@ public class Interactor : MonoBehaviour
         _collider = GetComponent<SphereCollider>();
         playerInputSet = PlayerInputSet.instance;
 
-        playerInputSet.Interact.Where(x => x = true).Subscribe(x => OnInteract());
+        playerInputSet.Interact.Where(x => x == true).Subscribe(x => OnInteract());
     }
 
     void OnTriggerEnter(Collider collider){
         isInArea = true;
+        Debug.Log("IIIItera");
     }
 
     void OnTriggerExit(Collider collider){
         isInArea = false;
+        Debug.Log("Itera");
     }
 
     private GameObject ShootRay(){
         RaycastHit hitInfo;
         GameObject obj = null;
         Vector3 cameraForward = Vector3.Scale(Camera.main.transform.forward, new Vector3(1, 0, 1)).normalized;
-        if(Physics.Raycast(gameObject.transform.position, cameraForward, out hitInfo, _collider.radius)){
+        if(Physics.Raycast(gameObject.transform.position, cameraForward, out hitInfo, _collider.radius, 1 << 11)){
             obj = hitInfo.collider.gameObject;
         }
         
@@ -37,9 +39,10 @@ public class Interactor : MonoBehaviour
     }
 
     void OnInteract(){
-        Debug.Log("PushE");
         if(isInArea){
             GameObject target = ShootRay();
+            Debug.Log("shoot");
+            Debug.Log(target.name);
             if(target != null){
                 if(target.GetComponent<Interactable>() != null){
                     target.SendMessage("InteractEvent");

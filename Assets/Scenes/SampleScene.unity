@@ -1795,6 +1795,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   door: {fileID: 30794170}
+  isActive: 1
 --- !u!1 &812250916
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,6 +14,7 @@ public class Monkey : Enemy
     }
 
     [SerializeField, ReadOnly]private Mode _currentMode = Mode.Idle;
+    [SerializeField]private float chaseSpeed,patrolSpeed;
 
     void Update(){
         UpdateMode(_currentMode);
@@ -104,8 +105,11 @@ public class Monkey : Enemy
     void Chase(){
         GameObject g = SearchToSearchableRay();
         if(g != null && SearchToObject() == SearchToSearchableRay()){
-            Debug.Log(g.name);
-            transform.position = Vector3.MoveTowards(transform.position ,g.transform.position, 1 * Time.deltaTime);
+            //transform.position = Vector3.MoveTowards(transform.position ,g.transform.position, 1 * Time.deltaTime);
+            
+            gameObject.transform.LookAt(g.transform);
+            Vector3 moveDirection = gameObject.transform.forward;
+            _rigidbody.velocity = moveDirection * chaseSpeed + new Vector3(0, _rigidbody.velocity.y, 0) * Time.deltaTime;
         }else{
             SwitchMode(Mode.Caution);
         }

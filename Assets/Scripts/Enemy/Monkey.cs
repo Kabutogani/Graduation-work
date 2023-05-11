@@ -15,6 +15,14 @@ public class Monkey : Enemy
 
     [SerializeField, ReadOnly]private Mode _currentMode = Mode.Idle;
     [SerializeField]private float chaseSpeed,patrolSpeed;
+    [SerializeField]GameObject _firstTargetRoute;
+    [SerializeField]EnemyRoute _nextRoute,_beforeRoute;
+    [SerializeField]RouteCheckArea routeCheckArea;
+
+    public override void WithStart(){
+        _firstTargetRoute = GetNearestObjWithTag("EnemyRoute/Monkey");
+        SwitchMode(Mode.Patrol);
+    }
 
     void Update(){
         UpdateMode(_currentMode);
@@ -66,7 +74,8 @@ public class Monkey : Enemy
             SwitchMode(Mode.Caution);
         }
         if(!b){
-            SwitchMode(Mode.Idle);
+            //検証が終わったらMode.Idleに戻せ
+            SwitchMode(Mode.Patrol);
         }
     }
 
@@ -77,6 +86,14 @@ public class Monkey : Enemy
         _currentMode = Mode.Idle;
     }
     void StartPatrol(){
+        if(_beforeRoute == null){
+            _beforeRoute = _nextRoute;
+            _nextRoute = _firstTargetRoute.GetComponent<EnemyRoute>();
+
+        }else{
+            _nextRoute = GetNextRouteByNowRoute(_nextRoute,_beforeRoute);
+            _beforeRoute = _nextRoute;
+        }
         _currentMode = Mode.Patrol;
     }
 
@@ -93,7 +110,19 @@ public class Monkey : Enemy
     }
 
     void Patrol(){
-
+        if(routeCheckArea.HitObj != null){
+            if(routeCheckArea.HitObj.GetComponent<EnemyRoute>() == _nextRoute){
+                SwitchMode(Mode.Patrol);
+            }
+        }
+        GameObject g = _nextRoute.gameObject;
+        gameObject.transform.LookAt(g.transform);
+        Vector3 r = gameObject.transform.eulerAngles;
+        r.x = 0;
+        r.z = 0;
+        gameObject.transform.eulerAngles = r;
+        Vector3 moveDirection = gameObject.transform.forward;
+        _rigidbody.velocity = moveDirection * chaseSpeed + new Vector3(0, _rigidbody.velocity.y, 0) * Time.deltaTime;
     }
     
     void Caution(){

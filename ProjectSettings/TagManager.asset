@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - EnemyRoute/Monkey
   layers:
   - Default
   - TransparentFX
@@ -17,8 +18,8 @@ TagManager:
   - AI/Searcher
   - Interact/Interactor
   - Interact/Interactable
-  - 
-  - 
+  - Route/RouteChecker
+  - Route/Route
   - 
   - 
   - 

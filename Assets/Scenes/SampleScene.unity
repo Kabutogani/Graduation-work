@@ -1756,7 +1756,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 776772256}
+<<<<<<< Updated upstream
   - component: {fileID: 776772257}
+=======
+>>>>>>> Stashed changes
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -1782,6 +1785,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< Updated upstream
 --- !u!114 &776772257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1796,6 +1800,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   door: {fileID: 30794170}
   isActive: 1
+=======
+>>>>>>> Stashed changes
 --- !u!1 &812250916
 GameObject:
   m_ObjectHideFlags: 0
@@ -3124,6 +3130,10 @@ GameObject:
   - component: {fileID: 1587193121}
   - component: {fileID: 1587193124}
   - component: {fileID: 1587193123}
+<<<<<<< Updated upstream
+=======
+  - component: {fileID: 1587193125}
+>>>>>>> Stashed changes
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -3192,6 +3202,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &1587193125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1587193120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9631c2bbe673926459e29e22247a74e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isInArea: 0
 --- !u!1 &1644114360
 GameObject:
   m_ObjectHideFlags: 0
@@ -3470,9 +3493,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1861368856}
+<<<<<<< Updated upstream
   - component: {fileID: 1861368857}
   - component: {fileID: 1861368858}
   m_Layer: 10
+=======
+  - component: {fileID: 1861368858}
+  - component: {fileID: 1861368857}
+  m_Layer: 0
+>>>>>>> Stashed changes
   m_Name: Intaractor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3519,6 +3548,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9631c2bbe673926459e29e22247a74e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
+=======
+  isInArea: 0
+>>>>>>> Stashed changes
 --- !u!1 &1900330810
 GameObject:
   m_ObjectHideFlags: 0
@@ -3992,7 +4025,11 @@ GameObject:
   - component: {fileID: 2083211392}
   - component: {fileID: 2083211393}
   - component: {fileID: 2083211394}
+<<<<<<< Updated upstream
   m_Layer: 11
+=======
+  m_Layer: 0
+>>>>>>> Stashed changes
   m_Name: Interactable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4026,7 +4063,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f37e2ce8c9bc92c4a81c4787c357caf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
   messageListener: {fileID: 776772255}
+=======
+>>>>>>> Stashed changes
 --- !u!65 &2083211394
 BoxCollider:
   m_ObjectHideFlags: 0

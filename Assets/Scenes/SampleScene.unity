@@ -2646,7 +2646,7 @@ GameObject:
   - component: {fileID: 885724689}
   - component: {fileID: 885724693}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: UICanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2743,10 +2743,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 885724688}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40822073faa06a7458f0e85aeadb1ef8, type: 3}
+  m_Script: {fileID: 11500000, guid: 49f85686e12843c4487503c6eb4d6652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _configUI: {fileID: 910061776}
+  _inventoryUIObj: {fileID: 0}
+  _configUIObj: {fileID: 910061776}
 --- !u!1 &888840256
 GameObject:
   m_ObjectHideFlags: 0
@@ -2920,6 +2921,7 @@ GameObject:
   m_Component:
   - component: {fileID: 910061777}
   - component: {fileID: 910061778}
+  - component: {fileID: 910061779}
   m_Layer: 5
   m_Name: KeyConfig
   m_TagString: Untagged
@@ -2964,6 +2966,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 17baf0f7ad67d3747ae099978f3dda83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &910061779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 910061776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40822073faa06a7458f0e85aeadb1ef8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &969834821
@@ -5190,7 +5204,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 885724693}
+      - m_Target: {fileID: 910061779}
         m_TargetAssemblyTypeName: Config, Assembly-CSharp
         m_MethodName: Func1
         m_Mode: 0

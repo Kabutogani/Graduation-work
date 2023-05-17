@@ -12,10 +12,20 @@ public class UIMain : MonoBehaviour
     void Start()
     {
         _playerInputSet = PlayerInputSet.instance;
-        _playerInputSet.Tab.Subscribe(x => {
-            CameraMove.ChangePOVCursorMode(!x);
-            OnConfigUI(x);
+        _playerInputSet.Tab.Where(x => x == true).Subscribe(x => {
+            ChangeCursorMode(Cursor.visible);
+            OnConfigUI(!_configUIObj.activeSelf);
+            Debug.Log(Cursor.visible);
+            if(Cursor.visible){
+                if(!_configUIObj.activeSelf){
+                    OnConfigUI(true);
+                }
+            }
         }).AddTo(this);
+    }
+
+    void ChangeCursorMode(bool i){
+        CameraMove.ChangePOVCursorMode(i);
     }
 
     void OnInventoryUI(bool i){

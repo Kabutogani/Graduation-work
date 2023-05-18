@@ -117,6 +117,10 @@ public class Monkey : Enemy
         }
         _navMeshAgent.SetDestination(_nextRoute.gameObject.transform.position);
 
+        if(SearchToSearchableRay() != null && SearchToObject() == SearchToSearchableRay()){
+            SwitchMode(Mode.Chase);
+        }
+
         // GameObject g = _nextRoute.gameObject;
         // gameObject.transform.LookAt(g.transform);
         // Vector3 r = gameObject.transform.eulerAngles;
@@ -130,6 +134,8 @@ public class Monkey : Enemy
     void Caution(){
         if(SearchToSearchableRay() && SearchToObject() == SearchToSearchableRay()){
             SwitchMode(Mode.Chase);
+        }else{
+            SwitchMode(Mode.Patrol);
         }
     }
 
@@ -138,9 +144,11 @@ public class Monkey : Enemy
         if(g != null && SearchToObject() == SearchToSearchableRay()){
             //transform.position = Vector3.MoveTowards(transform.position ,g.transform.position, 1 * Time.deltaTime);
             
-            gameObject.transform.LookAt(g.transform);
-            Vector3 moveDirection = gameObject.transform.forward;
-            _rigidbody.velocity = moveDirection * chaseSpeed + new Vector3(0, _rigidbody.velocity.y, 0) * Time.deltaTime;
+            _navMeshAgent.SetDestination(g.transform.position);
+
+            // gameObject.transform.LookAt(g.transform);
+            // Vector3 moveDirection = gameObject.transform.forward;
+            // _rigidbody.velocity = moveDirection * chaseSpeed + new Vector3(0, _rigidbody.velocity.y, 0) * Time.deltaTime;
         }else{
             SwitchMode(Mode.Caution);
         }

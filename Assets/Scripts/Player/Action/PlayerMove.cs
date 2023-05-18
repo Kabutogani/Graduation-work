@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
 using UniRx.Triggers;
+using UnityEngine.AI;
 
 public class PlayerMove : MonoBehaviour
 {
@@ -11,14 +12,15 @@ public class PlayerMove : MonoBehaviour
     private Rigidbody _rigidbody;
     private Vector2 _targetVector;
     private bool _isMove;
+    private NavMeshAgent _navMeshAgent;
 
     // Start is called before the first frame update
     void Start()
     {   
         _rigidbody = GetComponent<Rigidbody>();
         _playerInputSet = PlayerInputSet.instance;
+        _navMeshAgent = GetComponent<NavMeshAgent>();
         this.UpdateAsObservable().Where(_ => _playerInputSet.Horizontal.Value != new Vector2(0,0)).Subscribe(_ => Move(_playerInputSet.Horizontal.Value));
-        //_playerInputSet.Tab.Subscribe(x => CameraMove.ChangePOVCursorMode(!x)).AddTo(this);
     }
 
     void Move(Vector2 vector){

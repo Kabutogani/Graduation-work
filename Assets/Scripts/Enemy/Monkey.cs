@@ -115,14 +115,16 @@ public class Monkey : Enemy
                 SwitchMode(Mode.Patrol);
             }
         }
-        GameObject g = _nextRoute.gameObject;
-        gameObject.transform.LookAt(g.transform);
-        Vector3 r = gameObject.transform.eulerAngles;
-        r.x = 0;
-        r.z = 0;
-        gameObject.transform.eulerAngles = r;
-        Vector3 moveDirection = gameObject.transform.forward;
-        _rigidbody.velocity = moveDirection * chaseSpeed + new Vector3(0, _rigidbody.velocity.y, 0) * Time.deltaTime;
+        _navMeshAgent.SetDestination(_nextRoute.gameObject.transform.position);
+
+        // GameObject g = _nextRoute.gameObject;
+        // gameObject.transform.LookAt(g.transform);
+        // Vector3 r = gameObject.transform.eulerAngles;
+        // r.x = 0;
+        // r.z = 0;
+        // gameObject.transform.eulerAngles = r;
+        // Vector3 moveDirection = gameObject.transform.forward;
+        // _rigidbody.velocity = moveDirection * chaseSpeed + new Vector3(0, _rigidbody.velocity.y, 0) * Time.deltaTime;
     }
     
     void Caution(){

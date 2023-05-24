@@ -18,6 +18,9 @@ public class ChaseEnemy : Enemy
     [SerializeField]protected GameObject _firstTargetRoute;
     [SerializeField]protected EnemyRoute _nextRoute,_beforeRoute;
     [SerializeField]protected RouteCheckArea routeCheckArea;
+    [SerializeField]protected float _chaseTimeRemaining;
+    [SerializeField]protected float _maxChaseTime = 10f;
+    [SerializeField]protected GameObject _chaseTarget;
 
     // Update is called once per frame
     void Update()

@@ -14,13 +14,13 @@ public class UIMain : MonoBehaviour
         _playerInputSet = PlayerInputSet.instance;
         _playerInputSet.Tab.Where(x => x == true).Subscribe(x => {
             ChangeCursorMode(Cursor.visible);
-            OnConfigUI(!_configUIObj.activeSelf);
-            Debug.Log(Cursor.visible);
+            OnInventoryUI(!_inventoryUIObj.activeSelf);
             if(Cursor.visible){
-                if(!_configUIObj.activeSelf){
-                    OnConfigUI(true);
+                if(!_inventoryUIObj.activeSelf){
+                    OnInventoryUI(true);
                 }
             }
+            OnConfigUI(false);
         }).AddTo(this);
     }
 
@@ -28,11 +28,11 @@ public class UIMain : MonoBehaviour
         CameraMove.ChangePOVCursorMode(i);
     }
 
-    void OnInventoryUI(bool i){
+    public void OnInventoryUI(bool i){
         _inventoryUIObj.SetActive(i);
     }
 
-    void OnConfigUI(bool i){
+    public void OnConfigUI(bool i){
         _configUIObj.SetActive(i);
     }
 }

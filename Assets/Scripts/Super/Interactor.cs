@@ -41,7 +41,6 @@ public class Interactor : MonoBehaviour
     void OnInteract(){
         if(isInArea){
             GameObject target = ShootRay();
-            Debug.Log("shoot");
             if(target != null){
                 if(target.GetComponent<Interactable>() != null){
                     target.SendMessage("InteractEvent");

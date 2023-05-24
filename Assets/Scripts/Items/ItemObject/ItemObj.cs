@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestItemObj : MonoBehaviour,IInteractable
+public class ItemObj : MonoBehaviour,IInteractable
 {
     public void OnInteract()
     {
@@ -14,6 +14,5 @@ public class TestItemObj : MonoBehaviour,IInteractable
     {
         
     }
-
     
 }

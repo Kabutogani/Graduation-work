@@ -7,7 +7,6 @@ public class Door : MonoBehaviour, IInteractable
     [SerializeField]
     private GameObject door;
     [SerializeField]private bool isActive;
-    int g;
 
     public void OnInteract()
     {   
@@ -18,7 +17,5 @@ public class Door : MonoBehaviour, IInteractable
             door.SetActive(true);
             isActive = true;
         }
-        g++;
-        Debug.Log(g);
     }
 }

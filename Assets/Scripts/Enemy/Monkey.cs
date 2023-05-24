@@ -4,21 +4,8 @@ using UnityEngine;
 using System;
 using Unity.Collections;
 
-public class Monkey : Enemy
+public class Monkey : ChaseEnemy
 {
-    enum Mode{
-        Idle,
-        Patrol,
-        Caution,
-        Chase
-    }
-
-    [SerializeField, ReadOnly]private Mode _currentMode = Mode.Idle;
-    [SerializeField]private float chaseSpeed,patrolSpeed;
-    [SerializeField]GameObject _firstTargetRoute;
-    [SerializeField]EnemyRoute _nextRoute,_beforeRoute;
-    [SerializeField]RouteCheckArea routeCheckArea;
-
     public override void WithStart(){
         _firstTargetRoute = GetNearestObjWithTag("EnemyRoute/Monkey");
         SwitchMode(Mode.Patrol);

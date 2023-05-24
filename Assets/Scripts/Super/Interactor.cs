@@ -42,10 +42,10 @@ public class Interactor : MonoBehaviour
         if(isInArea){
             GameObject target = ShootRay();
             Debug.Log("shoot");
-            Debug.Log(target.name);
             if(target != null){
                 if(target.GetComponent<Interactable>() != null){
                     target.SendMessage("InteractEvent");
+                    Debug.Log(target.name);
                 }
             }
         }

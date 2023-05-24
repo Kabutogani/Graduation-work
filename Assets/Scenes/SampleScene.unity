@@ -2203,6 +2203,9 @@ MonoBehaviour:
   _nextRoute: {fileID: 0}
   _beforeRoute: {fileID: 0}
   routeCheckArea: {fileID: 1429160620}
+  _chaseTimeRemaining: 0
+  _maxChaseTime: 7
+  _chaseTarget: {fileID: 0}
 --- !u!54 &757980520
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class ItemObj : MonoBehaviour,IInteractable
 {
+    [SerializeField]private string _itemName; 
+
     public void OnInteract()
     {
-        Debug.Log("ItemGet!");
+        Debug.Log("ItemGet");
+        Inventory.instance.AddItemForInventory(_itemName);
+        Destroy(this.gameObject);
     }
 
     // Start is called before the first frame update

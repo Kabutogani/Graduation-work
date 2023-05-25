@@ -1,18 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    public static Inventory instance;
+    [SerializeField]private GameObject _itemContentParent,_inventoryItemObj;
+
+    void Awake(){
+        if(instance == null){
+            instance = this;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void AddItemForInventory(string itemName){
+        GameObject item =  Instantiate(_inventoryItemObj);
+        item.transform.parent = _itemContentParent.transform;
+        item.GetComponent<Text>().text = itemName;
     }
 }

@@ -5,10 +5,10 @@ using UnityEngine;
 public class Door : MonoBehaviour, IInteractable
 {
     [SerializeField]
-    private GameObject door;
-    [SerializeField]private bool isActive;
+    protected GameObject door;
+    [SerializeField]protected bool isActive;
 
-    public void OnInteract()
+    public virtual void OnInteract()
     {   
         if(isActive){
             door.SetActive(false);

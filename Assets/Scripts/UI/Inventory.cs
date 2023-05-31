@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Inventory : MonoBehaviour
 {
     public static Inventory instance;
-    [SerializeField]private GameObject _itemContentParent,_inventoryItemObj;
+    public GameObject _itemContentParent,_inventoryItemObj;
 
     void Awake(){
         if(instance == null){
@@ -17,6 +17,6 @@ public class Inventory : MonoBehaviour
     public void AddItemForInventory(string itemName){
         GameObject item =  Instantiate(_inventoryItemObj);
         item.transform.parent = _itemContentParent.transform;
-        item.GetComponent<Text>().text = itemName;
+        item.GetComponent<InventoryItem>().ItemName = itemName;
     }
 }

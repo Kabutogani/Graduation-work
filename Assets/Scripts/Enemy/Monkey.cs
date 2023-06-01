@@ -139,7 +139,7 @@ public class Monkey : ChaseEnemy
             // Vector3 moveDirection = gameObject.transform.forward;
             // _rigidbody.velocity = moveDirection * chaseSpeed + new Vector3(0, _rigidbody.velocity.y, 0) * Time.deltaTime;
         }else{
-            if(_chaseTimeRemaining >= 0f){
+            if(_chaseTimeRemaining >= 0f && _chaseTarget != null){
                 _navMeshAgent.SetDestination(_chaseTarget.transform.position);
                 _chaseTimeRemaining -= Time.deltaTime;
             }else{

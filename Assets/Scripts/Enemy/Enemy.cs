@@ -32,7 +32,7 @@ public class Enemy : MonoBehaviour
     public GameObject SearchToSearchableRay(){
         GameObject g;
         RaycastHit hitInfo;
-        if(searchArea.searchAbles.Count != 0){
+        if(searchArea.searchAbles.Count != 0 && searchArea.searchAbles[0] != null){
             if(Physics.Raycast(gameObject.transform.position, searchArea.searchAbles[0].gameObject.transform.position - gameObject.transform.position ,out hitInfo, 100000f, 1 << 8)){
                 g = hitInfo.collider.gameObject;
             }else{

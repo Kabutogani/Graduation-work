@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - EnemyRoute/Monkey
+  - Enemy
   layers:
   - Default
   - TransparentFX

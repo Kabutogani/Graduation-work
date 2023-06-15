@@ -21,4 +21,8 @@ public class InventoryItem : MonoBehaviour
     {
         
     }
+
+    public virtual void OnUse(){
+        
+    }
 }

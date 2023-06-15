@@ -14,8 +14,8 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public void AddItemForInventory(string itemName){
-        GameObject item =  Instantiate(_inventoryItemObj);
+    public void AddItemForInventory(string itemName ,GameObject uiItem){
+        GameObject item =  Instantiate(uiItem);
         item.transform.parent = _itemContentParent.transform;
         item.GetComponent<InventoryItem>().ItemName = itemName;
     }

@@ -129,15 +129,13 @@ public class Monkey : ChaseEnemy
 
     void Chase(){
         GameObject g = SearchToSearchableRay();
+
         if(g != null && SearchToObject() == SearchToSearchableRay()){
-            //transform.position = Vector3.MoveTowards(transform.position ,g.transform.position, 1 * Time.deltaTime);
+
             _chaseTarget = g;
             _chaseTimeRemaining = _maxChaseTime;
             _navMeshAgent.SetDestination(g.transform.position);
 
-            // gameObject.transform.LookAt(g.transform);
-            // Vector3 moveDirection = gameObject.transform.forward;
-            // _rigidbody.velocity = moveDirection * chaseSpeed + new Vector3(0, _rigidbody.velocity.y, 0) * Time.deltaTime;
         }else{
             if(_chaseTimeRemaining >= 0f && _chaseTarget != null){
                 _navMeshAgent.SetDestination(_chaseTarget.transform.position);

@@ -19,12 +19,10 @@ public class Interactor : MonoBehaviour
 
     void OnTriggerEnter(Collider collider){
         isInArea = true;
-        Debug.Log("IIIItera");
     }
 
     void OnTriggerExit(Collider collider){
         isInArea = false;
-        Debug.Log("Itera");
     }
 
     private GameObject ShootRay(){

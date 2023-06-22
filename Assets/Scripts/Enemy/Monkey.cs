@@ -108,15 +108,6 @@ public class Monkey : ChaseEnemy
         if(SearchToSearchableRay() != null && SearchToObject() == SearchToSearchableRay()){
             SwitchMode(Mode.Chase);
         }
-
-        // GameObject g = _nextRoute.gameObject;
-        // gameObject.transform.LookAt(g.transform);
-        // Vector3 r = gameObject.transform.eulerAngles;
-        // r.x = 0;
-        // r.z = 0;
-        // gameObject.transform.eulerAngles = r;
-        // Vector3 moveDirection = gameObject.transform.forward;
-        // _rigidbody.velocity = moveDirection * chaseSpeed + new Vector3(0, _rigidbody.velocity.y, 0) * Time.deltaTime;
     }
     
     void Caution(){
@@ -129,6 +120,8 @@ public class Monkey : ChaseEnemy
 
     void Chase(){
         GameObject g = SearchToSearchableRay();
+        float dis = Mathf.Clamp(Vector3.Distance(g.transform.position, transform.position)/10 , 0.2f, 0.8f);
+        ChaseEffect.instance.EffectUIAlpha.Value =  1 - dis;
 
         if(g != null && SearchToObject() == SearchToSearchableRay()){
 
@@ -142,6 +135,7 @@ public class Monkey : ChaseEnemy
                 _chaseTimeRemaining -= Time.deltaTime;
             }else{
                 SwitchMode(Mode.Caution);
+                ChaseEffect.instance.EffectUIAlpha.Value = 0f;
             }
         }
     }

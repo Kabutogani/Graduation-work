@@ -19,7 +19,7 @@ public class Bird : Enemy
     public override void WithStart(){
         //_firstTargetRoute = GetNearestObjWithTag("EnemyRoute/Monkey");
         SwitchMode(Mode.Idle);
-        _destinationEnemy = GetNearestObjWithTag("Enemy/Bird");
+        _destinationEnemy = GetNearestObjWithTag("Enemy/Monkey");
     }
 
     void Update(){
@@ -67,8 +67,6 @@ public class Bird : Enemy
             //検証が終わったらMode.Idleに戻せ
             SwitchMode(Mode.Idle);
         }
-
-        Debug.Log("aaa");
     }
 
     
@@ -91,19 +89,6 @@ public class Bird : Enemy
             SwitchMode(Mode.Alarm);
         }
     }
-
-    void Patrol(){
-        // if(routeCheckArea.HitObj != null){
-        //     if(routeCheckArea.HitObj.GetComponent<EnemyRoute>() == _nextRoute){
-        //         SwitchMode(Mode.Patrol);
-        //     }
-        // }
-        //_navMeshAgent.SetDestination(_nextRoute.gameObject.transform.position);
-
-        if(SearchToSearchableRay() != null && SearchToObject() == SearchToSearchableRay()){
-            SwitchMode(Mode.Alarm);
-        }
-    }
     
     void Caution(){
         if(SearchToSearchableRay() && SearchToObject() == SearchToSearchableRay()){
@@ -115,24 +100,19 @@ public class Bird : Enemy
 
     void Alarm(){
         GameObject g = SearchToSearchableRay();
-        float dis = Mathf.Clamp(Vector3.Distance(g.transform.position, transform.position)/10 , 0.2f, 0.8f);
-        //ChaseEffect.instance.EffectUIAlpha.Value =  1 - dis;
-
-        Debug.Log("やー！");
 
         if(g != null && SearchToObject() == SearchToSearchableRay()){
 
             _chaseTarget = g;
-            //_chaseTimeRemaining = _maxChaseTime;
-            //_navMeshAgent.SetDestination(g.transform.position);
+            Debug.Log("メッセージを送信");
+            _destinationEnemy.SendMessage("AlarmMessage",_chaseTarget);
 
         }else{
-            if(/*_chaseTimeRemaining >= 0f &&*/ _chaseTarget != null){
-                //_navMeshAgent.SetDestination(_chaseTarget.transform.position);
-                //_chaseTimeRemaining -= Time.deltaTime;
+            if(_chaseTarget != null){
+
             }else{
                 SwitchMode(Mode.Caution);
-                //ChaseEffect.instance.EffectUIAlpha.Value = 0f;
+
             }
         }
     }

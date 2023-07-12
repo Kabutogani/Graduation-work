@@ -82,6 +82,8 @@ public class Monkey : ChaseEnemy
             _nextRoute = GetNextRouteByNowRoute(_nextRoute,_beforeRoute);
             _beforeRoute = _nextRoute;
         }
+
+        _navMeshAgent.SetDestination(_nextRoute.gameObject.transform.position);
         _currentMode = Mode.Patrol;
     }
 
@@ -103,10 +105,18 @@ public class Monkey : ChaseEnemy
                 SwitchMode(Mode.Patrol);
             }
         }
-        _navMeshAgent.SetDestination(_nextRoute.gameObject.transform.position);
-
+        
         if(SearchToSearchableRay() != null && SearchToObject() == SearchToSearchableRay()){
             SwitchMode(Mode.Chase);
+        }
+
+        if(_chaseTimeRemaining > 0){
+            if(_chaseTimeRemaining - Time.deltaTime < 0){
+                SwitchMode(Mode.Patrol);
+                _chaseTimeRemaining = 0;
+            }else{
+                _chaseTimeRemaining -= Time.deltaTime;
+            }
         }
     }
     
@@ -137,6 +147,15 @@ public class Monkey : ChaseEnemy
                 SwitchMode(Mode.Caution);
                 ChaseEffect.instance.EffectUIAlpha.Value = 0f;
             }
+        }
+    }
+
+
+    public void AlarmMessage(GameObject g){
+        if(_currentMode != Mode.Chase){
+            SwitchMode(Mode.Patrol);
+            _navMeshAgent.SetDestination(g.transform.position);
+            _chaseTimeRemaining = _maxChaseTime * 2;
         }
     }
 }

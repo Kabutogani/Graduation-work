@@ -7,6 +7,8 @@ TagManager:
   - EnemyRoute/Monkey
   - Enemy
   - Gimmick/HidePoint
+  - Enemy/Monkey
+  - Enemy/Bird
   layers:
   - Default
   - TransparentFX

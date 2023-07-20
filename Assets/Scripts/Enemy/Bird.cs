@@ -14,16 +14,22 @@ public class Bird : Enemy
 
     [SerializeField, ReadOnly]Mode _currentMode = Mode.Idle;
 
-    [SerializeField]GameObject _chaseTarget, _destinationEnemy;
+    [SerializeField]GameObject _chaseTarget, _destinationEnemy, _nearestMonkeyRoute;
+
+    [SerializeField]float _alarmTime, _maxAlarmTime;
 
     public override void WithStart(){
         //_firstTargetRoute = GetNearestObjWithTag("EnemyRoute/Monkey");
         SwitchMode(Mode.Idle);
         _destinationEnemy = GetNearestObjWithTag("Enemy/Monkey");
+        _nearestMonkeyRoute = GetNearestObjWithTag("EnemyRoute/Monkey");
     }
 
     void Update(){
         UpdateMode(_currentMode);
+        if(_alarmTime > 0){
+            _alarmTime -= Time.deltaTime;
+        }
     }
 
     void SwitchMode(Mode mode){
@@ -99,21 +105,13 @@ public class Bird : Enemy
     }
 
     void Alarm(){
-        GameObject g = SearchToSearchableRay();
-
-        if(g != null && SearchToObject() == SearchToSearchableRay()){
-
-            _chaseTarget = g;
+        
+        if(_alarmTime <= 0){
+            _destinationEnemy.SendMessage("AlarmMessage", gameObject);
             Debug.Log("メッセージを送信");
-            _destinationEnemy.SendMessage("AlarmMessage",_chaseTarget);
-
-        }else{
-            if(_chaseTarget != null){
-
-            }else{
-                SwitchMode(Mode.Caution);
-
-            }
+            SwitchMode(Mode.Idle);
+            _alarmTime = _maxAlarmTime;
         }
+        
     }
 }

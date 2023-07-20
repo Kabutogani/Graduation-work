@@ -6,6 +6,8 @@ using Unity.Collections;
 
 public class Monkey : ChaseEnemy
 {
+    int counts;
+
     public override void WithStart(){
         _firstTargetRoute = GetNearestObjWithTag("EnemyRoute/Monkey");
         SwitchMode(Mode.Patrol);
@@ -14,6 +16,15 @@ public class Monkey : ChaseEnemy
 
     void Update(){
         UpdateMode(_currentMode);
+
+        if(_chaseTimeRemaining > 0){
+            
+            if(_chaseTimeRemaining - Time.deltaTime >= 0){
+                _chaseTimeRemaining -= Time.deltaTime;
+            }else{
+                _chaseTimeRemaining = 0;
+            }
+        }
     }
 
     void SwitchMode(Mode mode){
@@ -58,13 +69,13 @@ public class Monkey : ChaseEnemy
 
     public override void InSearchArea(GameObject target, bool b)
     {
-        if(_currentMode == Mode.Idle && b){
-            SwitchMode(Mode.Caution);
-        }
-        if(!b){
-            //検証が終わったらMode.Idleに戻せ
-            SwitchMode(Mode.Patrol);
-        }
+        // if(_currentMode == Mode.Idle && b){
+        //     SwitchMode(Mode.Caution);
+        // }
+        // if(!b){
+        //     //検証が終わったらMode.Idleに戻せ
+        //     SwitchMode(Mode.Patrol);
+        // }
     }
 
     
@@ -110,22 +121,33 @@ public class Monkey : ChaseEnemy
             SwitchMode(Mode.Chase);
         }
 
-        if(_chaseTimeRemaining > 0){
-            if(_chaseTimeRemaining - Time.deltaTime < 0){
+        if(SearchToSearchableRay() && SearchToObject() == SearchToSearchableRay()){
+            SwitchMode(Mode.Chase);
+        }else{
+            if(_chaseTimeRemaining < 0){
                 SwitchMode(Mode.Patrol);
-                _chaseTimeRemaining = 0;
-            }else{
-                _chaseTimeRemaining -= Time.deltaTime;
             }
         }
+
+        // if(_chaseTimeRemaining > 0){
+        //     if(_chaseTimeRemaining - Time.deltaTime < 0){
+        //         SwitchMode(Mode.Patrol);
+        //         _chaseTimeRemaining = 0;
+        //     }else{
+        //         _chaseTimeRemaining -= Time.deltaTime;
+        //     }
+        // }
     }
     
     void Caution(){
         if(SearchToSearchableRay() && SearchToObject() == SearchToSearchableRay()){
             SwitchMode(Mode.Chase);
         }else{
-            SwitchMode(Mode.Patrol);
+            if(_chaseTimeRemaining < 0){
+                SwitchMode(Mode.Patrol);
+            }
         }
+        Debug.Log("Cautionいった");
     }
 
     void Chase(){
@@ -144,7 +166,7 @@ public class Monkey : ChaseEnemy
                 _navMeshAgent.SetDestination(_chaseTarget.transform.position);
                 _chaseTimeRemaining -= Time.deltaTime;
             }else{
-                SwitchMode(Mode.Caution);
+                SwitchMode(Mode.Patrol);
                 ChaseEffect.instance.EffectUIAlpha.Value = 0f;
             }
         }
@@ -156,6 +178,11 @@ public class Monkey : ChaseEnemy
             SwitchMode(Mode.Patrol);
             _navMeshAgent.SetDestination(g.transform.position);
             _chaseTimeRemaining = _maxChaseTime * 2;
+        }else{
+            _navMeshAgent.SetDestination(GetPlayerObj().transform.position);
+            _chaseTimeRemaining = _maxChaseTime * 2;
         }
+        Debug.Log("Alarm count : " + counts);
+        counts++;
     }
 }

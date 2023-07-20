@@ -8,7 +8,6 @@ public class RouteCheckArea : MonoBehaviour
     public GameObject HitObj;
 
     public void OnTriggerEnter(Collider collider){
-        Debug.Log("CheckPoint!");
         HitCollider = collider;
         HitObj = collider.gameObject;
     }

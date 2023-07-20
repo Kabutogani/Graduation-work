@@ -87,4 +87,10 @@ public class Enemy : MonoBehaviour
         nextRoute = tmpRouteList[Random.Range(0, tmpRouteList.Count)];
         return nextRoute;
     }
+
+    public GameObject GetPlayerObj(){
+        GameObject g;
+        g = GameObject.FindGameObjectWithTag("Player");
+        return g;
+    }
 }

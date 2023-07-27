@@ -8,19 +8,19 @@ using UniRx.Triggers;
 public class Dialog : MonoBehaviour
 {
     public Text DialogText;
-    [SerializeField]private TextAsset _assetText;
     [SerializeField]private GameObject _dialogObj;
     
     private PlayerInputSet _playerInputSet;
 
     private int _dialogLength, _dialogPageNum;
-    private string[] spString;
+    private string[] _spString;
+    private GameObject _textEventListener;
+
+    public static Dialog instance;
 
     void Start()
-    {
-        _dialogObj.SetActive(true);
-        DialogStart(_assetText);
-
+    {   
+        SetDialogActive(false);
         _playerInputSet = PlayerInputSet.instance;
         _playerInputSet.Interact.Where(x => x == true).Subscribe(x => OnInteract());
     }
@@ -51,10 +51,12 @@ public class Dialog : MonoBehaviour
         return textArray;
     }
 
-    public void DialogStart(TextAsset textAsset){
+    public void DialogStart(TextAsset textAsset, GameObject textEventListener){
+        SetDialogActive(true);
+        _textEventListener = textEventListener;
         string allText = TextLoad.Load(textAsset);
-        spString = TextSplitToMessage(allText);
-        _dialogLength = spString.Length;
+        _spString = TextSplitToMessage(allText);
+        _dialogLength = _spString.Length;
         _dialogPageNum = 0;
         DialogText.text = TextSplitToMessage(allText)[0];
     }
@@ -65,9 +67,53 @@ public class Dialog : MonoBehaviour
         }
     }
 
+    void CheckCommandInText(string text){
+        if(text.Contains("[[event:")){
+            string eventName = "";
+            for (int i = text.IndexOf("[[event:"); i < text.IndexOf("]]"); i++)
+            {
+                eventName = eventName + text.ToCharArray()[i];
+            }
+            eventName = eventName.Replace("[[event:", "");
+            _textEventListener.SendMessage(eventName);
+        }
+
+        if(text.Contains("[end]")){
+            DialogEnd();
+        }
+    }
+
+    void DisplayTextGenerate(){
+        string genText = _spString[_dialogPageNum+1];
+
+        if(genText.Contains("[end]")){
+            genText = genText.Replace("[end]", "");
+        }
+
+
+
+
+        if(genText.Contains("[[event:")){
+            string eventName = "";
+            for (int i = genText.IndexOf("[[event:"); i < genText.IndexOf("]]"); i++)
+            {
+                eventName = eventName + genText.ToCharArray()[i];
+            }
+            genText = genText.Replace(eventName, "");
+            genText = genText.Replace("]]", "");
+        }
+
+        DialogText.text = genText;
+    }
+
+    void TextInEvent(string eventName){
+
+    }
+
     void NextDialog(){
         if(_dialogPageNum+1 < _dialogLength){
-            DialogText.text = spString[_dialogPageNum +1];
+            DisplayTextGenerate();
+            CheckCommandInText(_spString[_dialogPageNum]);
             _dialogPageNum++;
         }else{
             DialogEnd();
@@ -76,5 +122,14 @@ public class Dialog : MonoBehaviour
 
     void OnInteract(){
         NextDialog();
+    }
+
+    void Awake(){
+        if(instance == null){
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }else{
+            Destroy(gameObject);
+        }
     }
 }

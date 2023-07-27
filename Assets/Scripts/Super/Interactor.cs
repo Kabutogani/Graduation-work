@@ -14,7 +14,7 @@ public class Interactor : MonoBehaviour
         _collider = GetComponent<SphereCollider>();
         playerInputSet = PlayerInputSet.instance;
 
-        playerInputSet.Interact.Where(x => x == true).Subscribe(x => OnInteract());
+        playerInputSet.Interact.Where(x => x == true && Dialog.instance.IsActiveDialog() == false).Subscribe(x => OnInteract());
     }
 
     void OnTriggerEnter(Collider collider){
@@ -42,7 +42,6 @@ public class Interactor : MonoBehaviour
             if(target != null){
                 if(target.GetComponent<Interactable>() != null){
                     target.SendMessage("InteractEvent");
-                    Debug.Log(target.name);
                 }
             }
         }

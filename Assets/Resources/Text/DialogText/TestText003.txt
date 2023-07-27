@@ -1,0 +1,2 @@
+パスワードを入力させるテストです。[next]
+パスワードを入力してください[[event:NeedPassWord]][next]

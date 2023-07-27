@@ -116,6 +116,7 @@ public class Dialog : MonoBehaviour
             CheckCommandInText(_spString[_dialogPageNum]);
             _dialogPageNum++;
         }else{
+            //CheckCommandInText(_spString[_dialogPageNum]);
             DialogEnd();
         }
     }

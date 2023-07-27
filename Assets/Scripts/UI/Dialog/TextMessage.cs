@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class TextMessage : MonoBehaviour
 {
-    [SerializeField]private TextAsset _textFile;
+    public TextAsset textFile;
 
     public void DialogStart(){
-        Dialog.instance.DialogStart(_textFile, this.gameObject);
+        Dialog.instance.DialogStart(textFile, this.gameObject);
     }
 }

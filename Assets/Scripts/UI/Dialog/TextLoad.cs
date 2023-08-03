@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public static class TextLoad
 {
@@ -18,6 +19,16 @@ public static class TextLoad
     public static string[] TextSplit(string text, char sp){
         string[] textArray;
         textArray = text.Split(sp);
+        return textArray;
+    }
+
+    public static string[] TextSplitToLine(string text){
+        string[] textArray = TextLoad.TextSplit(text, char.Parse("\n"));
+        return textArray;
+    }
+
+    public static string[] TextSplitToMessage(string text){
+        string[] textArray = TextLoad.TextSplit(text, "[next]");
         return textArray;
     }
 }

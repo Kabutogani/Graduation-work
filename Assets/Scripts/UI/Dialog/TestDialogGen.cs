@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestDialogGen : MonoBehaviour, IInteractable
+public class TestDialogGen : MonoBehaviour, IInteractable, IInputableText
 {
     [SerializeField]private string _password;
     [SerializeField]private TextAsset[] _textAsset;
@@ -14,8 +14,7 @@ public class TestDialogGen : MonoBehaviour, IInteractable
 
     public void OnInteract()
     {
-        textMessage.textFile = _textAsset[0];
-        GetComponent<TextMessage>().DialogStart();
+        GetComponent<TextMessage>().DialogStart(0);
     }
 
     public void TestTextEvent(){
@@ -23,17 +22,14 @@ public class TestDialogGen : MonoBehaviour, IInteractable
     }
 
     public void NeedPassWord(){
-        textMessage.DialogStart();
         InputField.instance.InputFieldStart(this.gameObject);
     }
 
     public void OnEnterInputField(string inputText){
         if(inputText == _password){
-            textMessage.textFile = _textAsset[2];
-            GetComponent<TextMessage>().DialogStart();
+            GetComponent<TextMessage>().DialogStart(2);
         }else{
-            textMessage.textFile = _textAsset[1];
-            GetComponent<TextMessage>().DialogStart();
+            GetComponent<TextMessage>().DialogStart(1);
         }
     }
 }

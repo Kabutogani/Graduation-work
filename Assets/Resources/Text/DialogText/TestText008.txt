@@ -1,0 +1,2 @@
+正しい名前だったようだ！[next]
+敵を封印することに成功した！[[event:ClearName]][next]

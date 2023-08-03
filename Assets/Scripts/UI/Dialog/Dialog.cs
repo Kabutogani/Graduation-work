@@ -41,24 +41,14 @@ public class Dialog : MonoBehaviour
         return i;
     }
 
-    string[] TextSplitToLine(string text){
-        string[] textArray = TextLoad.TextSplit(text, char.Parse("/n"));
-        return textArray;
-    }
-
-    string[] TextSplitToMessage(string text){
-        string[] textArray = TextLoad.TextSplit(text, "[next]");
-        return textArray;
-    }
-
     public void DialogStart(TextAsset textAsset, GameObject textEventListener){
         SetDialogActive(true);
         _textEventListener = textEventListener;
         string allText = TextLoad.Load(textAsset);
-        _spString = TextSplitToMessage(allText);
+        _spString = TextLoad.TextSplitToMessage(allText);
         _dialogLength = _spString.Length;
         _dialogPageNum = 0;
-        DialogText.text = TextSplitToMessage(allText)[0];
+        DialogText.text = TextLoad.TextSplitToMessage(allText)[0];
     }
 
     public void DialogEnd(){

@@ -1,0 +1,2 @@
+奇妙な絵画が飾ってある[next]
+余白に何かを書き込めそうだ[[event:InputName]][next]

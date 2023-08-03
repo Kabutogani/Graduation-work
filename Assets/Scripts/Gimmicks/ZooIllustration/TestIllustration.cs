@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class TestIllustration : MonoBehaviour, IInputableText,IInteractable
 {
@@ -26,10 +27,10 @@ public class TestIllustration : MonoBehaviour, IInputableText,IInteractable
     public void OnEnterInputField(string inputText)
     {   
         //Debug.Log(inputText);
-        string[] nameFileText = TextLoad.TextSplitToLine(TextLoad.Load(_nameFile));
+        string[] nameFileText = TextLoad.TextSplitToMessage(TextLoad.Load(_nameFile));
         // for (int i = 0; i < nameFileText.Length; i++)
         // {
-        //     //Debug.Log(nameFileText[i]);
+             //Debug.Log(nameFileText[i]);
         // }
         // if(CheckZooNames.CheckZooName(nameFileText, inputText)){
         //     textMessage.DialogStart(2);

@@ -26,20 +26,7 @@ public class TestIllustration : MonoBehaviour, IInputableText,IInteractable
 
     public void OnEnterInputField(string inputText)
     {   
-        //Debug.Log(inputText);
         string[] nameFileText = TextLoad.TextSplitToMessage(TextLoad.Load(_nameFile));
-        // for (int i = 0; i < nameFileText.Length; i++)
-        // {
-             //Debug.Log(nameFileText[i]);
-        // }
-        // if(CheckZooNames.CheckZooName(nameFileText, inputText)){
-        //     textMessage.DialogStart(2);
-        //     ClearName();
-        //     Debug.Log("正解してます");
-        // }else{
-        //     textMessage.DialogStart(1);
-        //     Debug.Log("不正解です");
-        // }
         if(inputText == _debugEnemyName){
             textMessage.DialogStart(2);
             ClearName();

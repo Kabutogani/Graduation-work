@@ -25,4 +25,8 @@ public class TitleButtons : MonoBehaviour
             }
         }
     }
+
+    public void ExitsGame(){
+        ExitGame.EndApplication();
+    }
 }

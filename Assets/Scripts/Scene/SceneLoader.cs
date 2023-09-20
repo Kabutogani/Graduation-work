@@ -14,7 +14,14 @@ public static class SceneLoader
     }
 
     public static AsyncOperation LoadSceneSingleAsync(string sceneName, bool isActive){
-        var scene = SceneManager.LoadSceneAsync(sceneName);
+        var scene = SceneManager.LoadSceneAsync(sceneName,LoadSceneMode.Single);
+        scene.allowSceneActivation = isActive;
+
+        return scene;
+    }
+
+    public static AsyncOperation LoadSceneAddAsync(string sceneName, bool isActive){
+        var scene = SceneManager.LoadSceneAsync(sceneName,LoadSceneMode.Additive);
         scene.allowSceneActivation = isActive;
 
         return scene;

@@ -5,6 +5,7 @@ using UnityEngine;
 public class TitleButtons : MonoBehaviour
 {
     [SerializeField]GameObject _UIparent, _UIBackFade;
+    [SerializeField]string firstLoadSceneName;
 
     public void PushButton(GameObject g){
         g.SetActive(true);
@@ -24,6 +25,19 @@ public class TitleButtons : MonoBehaviour
                 g.SetActive(false);
             }
         }
+    }
+
+    public void PushDataButton(int dataNum){
+        if(!SaveSystem.ExistsSaveDataFolder()){
+            SaveSystem.CreateSaveDataFolder();
+        }
+        if(SaveSystem.ExistsSaveDataFile(dataNum)){
+
+        }else{
+            SaveSystem.CreateSaveDataFile(dataNum);
+        }
+        SaveSystem.currentLoadSaveDataPath = SaveSystem.GetSaveDataPath(dataNum);
+        SceneLoader.LoadSceneSingle(firstLoadSceneName);
     }
 
     public void ExitsGame(){

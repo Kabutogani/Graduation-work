@@ -31,12 +31,12 @@ public class TitleButtons : MonoBehaviour
         if(!SaveSystem.ExistsSaveDataFolder()){
             SaveSystem.CreateSaveDataFolder();
         }
-        if(SaveSystem.ExistsSaveDataFile(dataNum)){
-
-        }else{
+        if(!SaveSystem.ExistsSaveDataFile(dataNum)){
             SaveSystem.CreateSaveDataFile(dataNum);
         }
+
         SaveSystem.currentLoadSaveDataPath = SaveSystem.GetSaveDataPath(dataNum);
+        Debug.Log(SaveSystem.currentLoadSaveDataPath);
         SceneLoader.LoadSceneSingle(firstLoadSceneName);
     }
 

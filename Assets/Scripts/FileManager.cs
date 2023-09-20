@@ -18,6 +18,6 @@ public static class FileManager
     }
 
     public static void CreateFile(string path){
-        File.Create("path");
+        File.Create(path);
     }
 }

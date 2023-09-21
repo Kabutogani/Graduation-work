@@ -32,4 +32,14 @@ public static class SaveSystem
     public static void Save(){
         
     }
+
+    public static string LoadAll(int dataNum){
+        string data = File.ReadAllText(saveDataPath + "/" + saveDataName + dataNum + ".txt");
+        return data;
+    }
+
+    public static string LoadLine(int dataNum, int lineNum){
+        string[] data = TextLoad.TextSplitToLine(LoadAll(dataNum));
+        return data[lineNum];
+    }
 }

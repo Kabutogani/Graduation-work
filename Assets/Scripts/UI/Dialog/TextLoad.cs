@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using System;
 
 public static class TextLoad
 {
@@ -23,7 +24,7 @@ public static class TextLoad
     }
 
     public static string[] TextSplitToLine(string text){
-        string[] textArray = TextLoad.TextSplit(text, char.Parse("\n"));
+        string[] textArray = text.Split(new string[] { Environment.NewLine }, StringSplitOptions.None);
         return textArray;
     }
 

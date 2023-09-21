@@ -9,7 +9,7 @@ public static class SaveSystem
     private static string saveDataName = "Save";
     public static string CurrentLoadSaveDataPath;
     public static int CurrentLoadDataNum;
-    public static SaveLoader[] SaveLoaders = new SaveLoader[1000];
+    public static SaveLoader[] SaveLoaders = new SaveLoader[200];
 
     public static bool ExistsSaveDataFolder(){
         return FileManager.ExistsFolder(saveDataPath);
@@ -32,7 +32,16 @@ public static class SaveSystem
     }
 
     public static void Save(){
-        
+        string[] tempDatas = TextLoad.TextSplitToLine(LoadAll(CurrentLoadDataNum));
+        for(int i = 0; i < SaveLoaders.Length; i++){
+            if(SaveLoaders[i] != null){
+                for(int n = 0; n < SaveLoaders[i].saveNumbers.Length; n++){
+                    tempDatas[SaveLoaders[i].saveNumbers[n]] = SaveLoaders[i].tempDatas[n];
+                }
+            }
+        }
+        Debug.Log("Saved!!");
+        File.WriteAllLines(CurrentLoadSaveDataPath, tempDatas);
     }
 
     public static string LoadAll(int dataNum){

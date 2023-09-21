@@ -7,7 +7,9 @@ public static class SaveSystem
 {
     private static string saveDataPath = Application.dataPath + "/Save";
     private static string saveDataName = "Save";
-    public static string currentLoadSaveDataPath;
+    public static string CurrentLoadSaveDataPath;
+    public static int CurrentLoadDataNum;
+    public static SaveLoader[] SaveLoaders = new SaveLoader[1000];
 
     public static bool ExistsSaveDataFolder(){
         return FileManager.ExistsFolder(saveDataPath);
@@ -40,6 +42,11 @@ public static class SaveSystem
 
     public static string LoadLine(int dataNum, int lineNum){
         string[] data = TextLoad.TextSplitToLine(LoadAll(dataNum));
+        return data[lineNum];
+    }
+
+    public static string LoadLine(int lineNum){
+        string[] data = TextLoad.TextSplitToLine(LoadAll(CurrentLoadDataNum));
         return data[lineNum];
     }
 }

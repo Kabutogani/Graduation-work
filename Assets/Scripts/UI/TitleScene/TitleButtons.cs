@@ -35,8 +35,8 @@ public class TitleButtons : MonoBehaviour
             SaveSystem.CreateSaveDataFile(dataNum);
         }
 
-        SaveSystem.currentLoadSaveDataPath = SaveSystem.GetSaveDataPath(dataNum);
-        Debug.Log(SaveSystem.currentLoadSaveDataPath);
+        SaveSystem.CurrentLoadSaveDataPath = SaveSystem.GetSaveDataPath(dataNum);
+        SaveSystem.CurrentLoadDataNum = dataNum;
         SceneLoader.LoadSceneSingle(firstLoadSceneName);
     }
 

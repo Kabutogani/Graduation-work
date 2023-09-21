@@ -5,12 +5,12 @@ using System.IO;
 
 public static class FileManager
 {
-    public static bool ExistsFolderInDataFolder(string path){
-        return Directory.Exists(Application.dataPath + "/" + path);
+    public static bool ExistsFolder(string path){
+        return Directory.Exists(path);
     }
 
-    public static bool ExistsFileInDataFolder(string path){
-        return File.Exists(Application.dataPath + "/" + path);
+    public static bool ExistsFile(string path){
+        return File.Exists(path);
     }
 
     public static void CreateFolder(string path){

@@ -900,6 +900,7 @@ GameObject:
   - component: {fileID: 628397804}
   - component: {fileID: 628397803}
   - component: {fileID: 628397802}
+  - component: {fileID: 628397805}
   m_Layer: 5
   m_Name: Data2Button
   m_TagString: Untagged
@@ -1023,6 +1024,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 628397800}
   m_CullTransparentMesh: 1
+--- !u!114 &628397805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628397800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d067477dc93115f47b7ff0bf87684b3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playTimeText: {fileID: 231757378}
+  dataNum: 2
 --- !u!1 &636138194
 GameObject:
   m_ObjectHideFlags: 0
@@ -1760,6 +1775,7 @@ GameObject:
   - component: {fileID: 1016606570}
   - component: {fileID: 1016606569}
   - component: {fileID: 1016606568}
+  - component: {fileID: 1016606571}
   m_Layer: 5
   m_Name: Data1Button
   m_TagString: Untagged
@@ -1883,6 +1899,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1016606566}
   m_CullTransparentMesh: 1
+--- !u!114 &1016606571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1016606566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d067477dc93115f47b7ff0bf87684b3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playTimeText: {fileID: 636138196}
+  dataNum: 1
 --- !u!1 &1040177694
 GameObject:
   m_ObjectHideFlags: 0
@@ -3205,6 +3235,7 @@ GameObject:
   - component: {fileID: 1850948728}
   - component: {fileID: 1850948727}
   - component: {fileID: 1850948726}
+  - component: {fileID: 1850948729}
   m_Layer: 5
   m_Name: Data3Button
   m_TagString: Untagged
@@ -3328,6 +3359,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1850948724}
   m_CullTransparentMesh: 1
+--- !u!114 &1850948729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1850948724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d067477dc93115f47b7ff0bf87684b3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playTimeText: {fileID: 1298644147}
+  dataNum: 3
 --- !u!1 &1856129249
 GameObject:
   m_ObjectHideFlags: 0

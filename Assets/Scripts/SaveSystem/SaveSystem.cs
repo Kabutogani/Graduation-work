@@ -10,11 +10,11 @@ public static class SaveSystem
     public static string currentLoadSaveDataPath;
 
     public static bool ExistsSaveDataFolder(){
-        return FileManager.ExistsFolderInDataFolder(saveDataPath);
+        return FileManager.ExistsFolder(saveDataPath);
     }
 
-    public static bool ExistsSaveDataFile(int i){
-        return FileManager.ExistsFileInDataFolder(saveDataPath + "/" + saveDataName + i + ".txt");
+    public static bool ExistsSaveDataFile(int dataNum){
+        return FileManager.ExistsFile(saveDataPath + "/" + saveDataName + dataNum + ".txt");
     }
 
     public static void CreateSaveDataFolder(){

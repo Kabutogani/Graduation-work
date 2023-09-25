@@ -550,7 +550,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _UIparent: {fileID: 684135655}
   _UIBackFade: {fileID: 1313770126}
-  firstLoadSceneName: SampleStage01
+  firstLoadSceneName: DebugHub
 --- !u!1 &547010116
 GameObject:
   m_ObjectHideFlags: 0

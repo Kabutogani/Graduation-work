@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class TitleButtons : MonoBehaviour
 {
     [SerializeField]GameObject _UIparent, _UIBackFade;
     [SerializeField]string firstLoadSceneName;
+    private int nowLoadingDataNum;
 
     public void PushButton(GameObject g){
         g.SetActive(true);
@@ -28,11 +30,13 @@ public class TitleButtons : MonoBehaviour
     }
 
     public void PushDataButton(int dataNum){
+        nowLoadingDataNum = dataNum;
         if(!SaveSystem.ExistsSaveDataFolder()){
             SaveSystem.CreateSaveDataFolder();
         }
         if(!SaveSystem.ExistsSaveDataFile(dataNum)){
             SaveSystem.CreateSaveDataFile(dataNum);
+            WriteNullDatas();
         }
 
         SaveSystem.CurrentLoadSaveDataPath = SaveSystem.GetSaveDataPath(dataNum);
@@ -42,5 +46,9 @@ public class TitleButtons : MonoBehaviour
 
     public void ExitsGame(){
         ExitGame.EndApplication();
+    }
+
+    void WriteNullDatas(){
+        
     }
 }

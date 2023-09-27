@@ -5,8 +5,8 @@ using System.IO;
 
 public static class SaveSystem
 {
-    private static string saveDataPath = Application.dataPath + "/Save";
-    private static string saveDataName = "Save";
+    public static string saveDataPath = Application.dataPath + "/Save";
+    public static string saveDataName = "Save";
     public static string CurrentLoadSaveDataPath;
     public static int CurrentLoadDataNum;
     public static SaveLoader[] SaveLoaders = new SaveLoader[200];
@@ -24,7 +24,12 @@ public static class SaveSystem
     }
 
     public static void CreateSaveDataFile(int dataNum){
-        FileManager.CreateFile(saveDataPath + "/" + saveDataName + dataNum + ".txt");
+        string[] nullDatas = new string[200];
+        for(int i = 0; i < nullDatas.Length; i++){
+            nullDatas[i] = "";
+        }
+        Debug.Log("wirteNull");
+        File.WriteAllLines(SaveSystem.saveDataPath + "/" + SaveSystem.saveDataName + dataNum + ".txt", nullDatas);
     }
 
     public static string GetSaveDataPath(int dataNum){

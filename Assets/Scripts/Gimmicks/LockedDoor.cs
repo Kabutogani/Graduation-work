@@ -8,13 +8,7 @@ public class LockedDoor : Door
 
     public override void OnInteract(){
         if(ItemChecker.CheckItemOnInventory(_keyName)){
-            if(isActive){
-                door.SetActive(false);
-                isActive = false;
-            }else{
-                door.SetActive(true);
-                isActive = true;
-            }
+            OpenAndClose(!isActive);
         }else{
             Debug.Log("YouHaveNotKey!!");
         }

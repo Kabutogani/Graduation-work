@@ -35,7 +35,7 @@ public class Door : MonoBehaviour, IInteractable, ILoadableSaveData
 
     }
 
-    void OpenAndClose(bool isOpen){
+    protected void OpenAndClose(bool isOpen){
         door.SetActive(isOpen);
         isActive = isOpen;
         ChangeDataValue(0, isOpen.ToString());

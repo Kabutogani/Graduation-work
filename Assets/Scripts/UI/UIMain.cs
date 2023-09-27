@@ -7,6 +7,7 @@ public class UIMain : MonoBehaviour
 {
     private PlayerInputSet _playerInputSet;
     [SerializeField] private GameObject _inventoryUIObj,_configUIObj;
+    public static UIMain instance;
 
     // Start is called before the first frame update
     void Start()
@@ -34,5 +35,14 @@ public class UIMain : MonoBehaviour
 
     public void OnConfigUI(bool i){
         _configUIObj.SetActive(i);
+    }
+
+    void Awake(){
+        if(instance == null){
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }else{
+            Destroy(gameObject);
+        }
     }
 }

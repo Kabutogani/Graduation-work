@@ -38,6 +38,7 @@ public static class SaveSystem
 
     public static void Save(){
         string[] tempDatas = TextLoad.TextSplitToLine(LoadAll(CurrentLoadDataNum));
+        TimeCounter.instance.SetTime();
         for(int i = 0; i < SaveLoaders.Length; i++){
             if(SaveLoaders[i] != null){
                 for(int n = 0; n < SaveLoaders[i].saveNumbers.Length; n++){

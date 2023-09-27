@@ -5,9 +5,11 @@ using UnityEngine;
 public class TeleporterOfHub : MonoBehaviour,IInteractable
 {
     [SerializeField]string targetSceneName;
+    [SerializeField]Vector3 targetPosition;
 
     public void OnInteract()
-    {
+    {   
+        PlayerStateMgr.instance.gameObject.transform.position = targetPosition;
         SceneLoader.LoadSceneSingle(targetSceneName);
     }
 

@@ -42,11 +42,12 @@ public static class SaveSystem
             if(SaveLoaders[i] != null){
                 for(int n = 0; n < SaveLoaders[i].saveNumbers.Length; n++){
                     tempDatas[SaveLoaders[i].saveNumbers[n]] = SaveLoaders[i].tempDatas[n];
+                    //Debug.Log("i="+i+", n="+n+ "がお呼ばれ！ 値は "+SaveLoaders[i].tempDatas[n],SaveLoaders[i].gameObject);
                 }
             }
         }
-        Debug.Log("Saved!!");
         File.WriteAllLines(CurrentLoadSaveDataPath, tempDatas);
+        Debug.Log("Saved!!");
     }
 
     public static string LoadAll(int dataNum){

@@ -18,12 +18,15 @@ public class TestInteractObject : MonoBehaviour,IInteractable,ILoadableSaveData
     {
         loadedDatas = datas;
         currentDatas = loadedDatas;
-        Debug.Log("OnLoad");
     }
 
     public void OnInteract()
     {
-        ChangeDataValue(0, "new DATA");
         SaveSystem.Save();
+    }
+
+    public void SetDefault()
+    {
+        ChangeDataValue(0, "new DATA");
     }
 }

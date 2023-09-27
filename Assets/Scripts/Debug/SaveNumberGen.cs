@@ -24,7 +24,6 @@ public class SaveNumberGen : MonoBehaviour
                 }
             }
         }
-        Debug.Log("Saved!!");
         File.WriteAllLines(SaveSystem.CurrentLoadSaveDataPath + "_SaveNumberMemo.txt", tempDatas);
     }
 }

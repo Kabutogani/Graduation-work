@@ -31,9 +31,8 @@ public class SaveLoader : MonoBehaviour
         foreach(int i in saveNumbers){
             loadedDatas.Add(SaveSystem.LoadLine(i));
         }
-
-        this.gameObject.SendMessage("DataLoad", loadedDatas);
         tempDatas = loadedDatas;
+        this.gameObject.SendMessage("DataLoad", loadedDatas);
     }
 
     public void Save(List<string> data){

@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 public class PlayerInputSet : MonoBehaviour, IDisposable
 {   
     public static PlayerInputSet instance;
+    private GameObject disableTargetObject;
 
     [SerializeField] private InputActionAsset _inputActionAsset;
     private InputActionMap _inputAction;
@@ -21,19 +22,31 @@ public class PlayerInputSet : MonoBehaviour, IDisposable
     public IReadOnlyReactiveProperty<bool> Interact => _interact;
 
     private void OnEnable(){
+        disableTargetObject = GameObject.Find(this.gameObject.name);;
         _inputAction.Enable();
     }
 
     private void OnDisable(){
-        _inputAction.Disable();
+
+        if(disableTargetObject == this.gameObject){
+            _inputAction.Disable();
+        }
     }
 
     private void OnDestroy(){
-        Dispose();
+
+        if(disableTargetObject == this.gameObject){
+            Dispose();
+        }
     }
 
     private void Awake(){
-        instance = this;
+        if(instance == null){
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }else{
+            Destroy(gameObject);
+        }
         
         _inputAction = _inputActionAsset.FindActionMap("Player");
 

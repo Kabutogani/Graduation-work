@@ -93,7 +93,6 @@ public class Monkey : ChaseEnemy
             _nextRoute = GetNextRouteByNowRoute(_nextRoute,_beforeRoute);
             _beforeRoute = _nextRoute;
         }
-
         _navMeshAgent.SetDestination(_nextRoute.gameObject.transform.position);
         _currentMode = Mode.Patrol;
     }
@@ -124,9 +123,7 @@ public class Monkey : ChaseEnemy
         if(SearchToSearchableRay() && SearchToObject() == SearchToSearchableRay()){
             SwitchMode(Mode.Chase);
         }else{
-            if(_chaseTimeRemaining < 0){
-                SwitchMode(Mode.Patrol);
-            }
+
         }
 
         // if(_chaseTimeRemaining > 0){
@@ -152,7 +149,10 @@ public class Monkey : ChaseEnemy
 
     void Chase(){
         GameObject g = SearchToSearchableRay();
-        float dis = Mathf.Clamp(Vector3.Distance(g.transform.position, transform.position)/10 , 0.2f, 0.8f);
+        float dis = 0;
+        if(g != null){
+            dis = Mathf.Clamp(Vector3.Distance(g.transform.position, transform.position)/10 , 0.2f, 0.8f);
+        }
         ChaseEffect.instance.EffectUIAlpha.Value =  1 - dis;
 
         if(g != null && SearchToObject() == SearchToSearchableRay()){
@@ -166,8 +166,9 @@ public class Monkey : ChaseEnemy
                 _navMeshAgent.SetDestination(_chaseTarget.transform.position);
                 _chaseTimeRemaining -= Time.deltaTime;
             }else{
-                SwitchMode(Mode.Patrol);
+                _nextRoute = GetNearestObjWithTag("EnemyRoute/Monkey").GetComponent<EnemyRoute>();
                 ChaseEffect.instance.EffectUIAlpha.Value = 0f;
+                SwitchMode(Mode.Patrol);
             }
         }
     }

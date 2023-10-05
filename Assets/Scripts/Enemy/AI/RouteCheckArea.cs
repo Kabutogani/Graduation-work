@@ -11,4 +11,11 @@ public class RouteCheckArea : MonoBehaviour
         HitCollider = collider;
         HitObj = collider.gameObject;
     }
+
+    public void OnTriggerExit(Collider collider){
+        if(collider = HitCollider){
+            HitCollider = null;
+            HitObj = null;
+        }
+    }
 }

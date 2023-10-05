@@ -8,7 +8,7 @@ using UnityEngine.AI;
 public class Enemy : MonoBehaviour
 {
     [SerializeField]SearchArea searchArea;
-    public Rigidbody _rigidbody;
+    private Rigidbody _rigidbody;
     protected NavMeshAgent _navMeshAgent;
 
     // Start is called before the first frame update

@@ -161,9 +161,10 @@ public class StayChaseEnemy : ChaseEnemy
             if(_chaseTimeRemaining >= 0f && _chaseTarget != null){
                 _navMeshAgent.SetDestination(_chaseTarget.transform.position);
                 _chaseTimeRemaining -= Time.deltaTime;
-            }else{
                 SwitchMode(Mode.Patrol);
                 ChaseEffect.instance.EffectUIAlpha.Value = 0f;
+            }else{
+
             }
         }
     }

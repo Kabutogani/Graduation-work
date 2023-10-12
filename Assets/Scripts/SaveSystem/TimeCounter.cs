@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(SaveLoader))]
 public class TimeCounter : MonoBehaviour,ILoadableSaveData
 {
     public static TimeCounter instance;

@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DebugHub.unity
     guid: 0c49073e1e6e5ee4d9aacefb6715be51
+  - enabled: 1
+    path: Assets/Scenes/Floor_1.unity
+    guid: eb6a0113d3b2fe847953d2bc812cee9c
   m_configObjects: {}

@@ -22,7 +22,6 @@ public class TestInteractObject : MonoBehaviour,IInteractable,ILoadableSaveData
 
     public void OnInteract()
     {
-        GameProgress.instance.SetProgressNum(1);
         SaveSystem.Save();
     }
 

@@ -56,7 +56,7 @@ public class GameProgress : MonoBehaviour, ILoadableSaveData{
     }
 
     public bool IsPassedProgress(int progressNum){
-        if(progressNum >= loadedProgressNum){
+        if(progressNum <= loadedProgressNum){
             return true;
         }else{
             return false;

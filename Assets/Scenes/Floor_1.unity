@@ -2788,6 +2788,7 @@ GameObject:
   m_Component:
   - component: {fileID: 324309761}
   - component: {fileID: 324309762}
+  - component: {fileID: 324309763}
   m_Layer: 0
   m_Name: FirstPlayEvent
   m_TagString: Untagged
@@ -2822,6 +2823,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8c772893fd5fea4aa3e107e6d701329, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &324309763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 324309760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1749bf82ac9e414cbab8e66c19170ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textFile:
+  - {fileID: 4900000, guid: 62a1d7eb1f3207a4a8a9dedf0fbfc0f1, type: 3}
 --- !u!1001 &325212900
 PrefabInstance:
   m_ObjectHideFlags: 0

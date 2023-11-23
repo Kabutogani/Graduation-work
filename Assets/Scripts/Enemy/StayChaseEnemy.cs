@@ -8,6 +8,7 @@ public class StayChaseEnemy : ChaseEnemy
 {
         int counts;
     [SerializeField]Quaternion defaultRotate;
+    [SerializeField]Animator animator;
 
     public override void WithStart(){
         _firstTargetRoute = GetNearestObjWithTag("EnemyRoute/StayChaseEnemy");
@@ -84,17 +85,29 @@ public class StayChaseEnemy : ChaseEnemy
     void StartIdle(){
 
         _currentMode = Mode.Idle;
+        AnimBoolReset();
+        animator.SetBool("Idle", true);
+        
     }
     void StartPatrol(){
         _currentMode = Mode.Patrol;
+        AnimBoolReset();
+        animator.SetBool("Walk", true);
+        
     }
 
     void StartCaution(){
         _currentMode = Mode.Caution;
+        AnimBoolReset();
+        animator.SetBool("Walk", true);
+        
     }
 
     void StartChase(){
         _currentMode = Mode.Chase;
+        AnimBoolReset();
+        animator.SetBool("Run", true);
+        
     }
 
     void Idle(){
@@ -167,5 +180,11 @@ public class StayChaseEnemy : ChaseEnemy
 
             }
         }
+    }
+
+    void AnimBoolReset(){
+        animator.SetBool("Run", false);
+        animator.SetBool("Idle", false);
+        animator.SetBool("Walk", false);
     }
 }

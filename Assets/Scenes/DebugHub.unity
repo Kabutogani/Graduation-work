@@ -2409,7 +2409,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 726517716}
-  - component: {fileID: 726517717}
   - component: {fileID: 726517718}
   m_Layer: 0
   m_Name: Teleporter01
@@ -2436,21 +2435,6 @@ Transform:
   m_Father: {fileID: 2081554521}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &726517717
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 726517715}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41f6cbfec85b8e14ca8843dbed5beb4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _itemName: DebugDecoy
-  _itemObj: {fileID: 2126024948855111695, guid: 37b6b8eb948331c4991a19f2eea17f5c,
-    type: 3}
 --- !u!114 &726517718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5296,7 +5280,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1804910685}
-  - component: {fileID: 1804910687}
   - component: {fileID: 1804910686}
   m_Layer: 0
   m_Name: Teleporter02
@@ -5337,21 +5320,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetSceneName: Floor_1
   targetPosition: {x: 0, y: 0.5, z: 12.5}
---- !u!114 &1804910687
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1804910684}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41f6cbfec85b8e14ca8843dbed5beb4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _itemName: DebugDecoy
-  _itemObj: {fileID: 2126024948855111695, guid: 37b6b8eb948331c4991a19f2eea17f5c,
-    type: 3}
 --- !u!1 &1861368855
 GameObject:
   m_ObjectHideFlags: 0

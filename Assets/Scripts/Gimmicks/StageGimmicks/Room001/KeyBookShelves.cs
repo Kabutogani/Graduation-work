@@ -38,6 +38,7 @@ public class KeyBookShelves : MonoBehaviour, IInteractable,ILoadableSaveData
             ChangeDataValue(0, true.ToString());
             isGotKey = true;
             Inventory.instance.AddItemForInventory("最初の鍵",itemObj);
+            GameProgress.instance.SetProgressNum(3);
         }
     }
 

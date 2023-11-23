@@ -13,6 +13,7 @@ public class StayChaseEnemy : ChaseEnemy
     public override void WithStart(){
         _firstTargetRoute = GetNearestObjWithTag("EnemyRoute/StayChaseEnemy");
         SwitchMode(Mode.Patrol);
+        _chaseTarget = GameObject.FindGameObjectWithTag("Player");
         _chaseTimeRemaining = 0f;
     }
 
@@ -166,7 +167,7 @@ public class StayChaseEnemy : ChaseEnemy
 
         if(g != null && SearchToObject() == SearchToSearchableRay()){
 
-            _chaseTarget = g;
+            //_chaseTarget = g;
             _chaseTimeRemaining = _maxChaseTime;
             _navMeshAgent.SetDestination(g.transform.position);
 
@@ -174,10 +175,13 @@ public class StayChaseEnemy : ChaseEnemy
             if(_chaseTimeRemaining >= 0f && _chaseTarget != null){
                 _navMeshAgent.SetDestination(_chaseTarget.transform.position);
                 _chaseTimeRemaining -= Time.deltaTime;
+                //SwitchMode(Mode.Patrol);
+                Debug.Log("Chaseins");
+                //ChaseEffect.instance.EffectUIAlpha.Value = 0f;
+            }else{
                 SwitchMode(Mode.Patrol);
                 ChaseEffect.instance.EffectUIAlpha.Value = 0f;
-            }else{
-
+                Debug.Log("ChaseOut");
             }
         }
     }

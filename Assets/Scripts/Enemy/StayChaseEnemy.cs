@@ -181,6 +181,10 @@ public class StayChaseEnemy : ChaseEnemy
             }else{
                 SwitchMode(Mode.Patrol);
                 ChaseEffect.instance.EffectUIAlpha.Value = 0f;
+                if(GameProgress.instance.IsEqualProgress(3)){
+                    Debug.Log("1階の鍵が出現");
+                    GameProgress.instance.SetProgressNum(4);
+                }
                 Debug.Log("ChaseOut");
             }
         }

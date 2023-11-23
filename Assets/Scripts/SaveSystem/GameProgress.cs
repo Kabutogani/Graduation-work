@@ -62,4 +62,12 @@ public class GameProgress : MonoBehaviour, ILoadableSaveData{
             return false;
         }
     }
+
+    public bool IsEqualProgress(int progressNum){
+        if(progressNum == loadedProgressNum){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }

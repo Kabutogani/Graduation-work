@@ -31,7 +31,7 @@ public class KeyBookShelves : MonoBehaviour, IInteractable,ILoadableSaveData
     public void OnInteract()
     {
         textMessage = GetComponent<TextMessage>();
-        if(isGotKey || !GameProgress.instance.IsPassedProgress(2)){
+        if(isGotKey || !GameProgress.instance.IsEqualProgress(2)){
             textMessage.DialogStart(1);
         }else{
             textMessage.DialogStart(0);

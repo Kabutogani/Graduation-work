@@ -5,8 +5,11 @@ using UniRx;
 using UniRx.Triggers;
 using UnityEngine.AI;
 
-public class Enemy : MonoBehaviour
-{
+[RequireComponent(typeof(SaveLoader))]
+public class Enemy : MonoBehaviour,ILoadableSaveData
+{   
+    private List<string> loadedDatas;
+    private List<string> currentDatas;
     [SerializeField]SearchArea searchArea;
     private Rigidbody _rigidbody;
     protected NavMeshAgent _navMeshAgent;
@@ -92,5 +95,29 @@ public class Enemy : MonoBehaviour
         GameObject g;
         g = GameObject.FindGameObjectWithTag("Player");
         return g;
+    }
+
+    public void DataLoad(List<string> datas)
+    {
+        loadedDatas = datas;
+        currentDatas = loadedDatas;
+        if(datas[0] != null && datas[0] != ""){
+            if(bool.Parse(datas[0])){
+                this.gameObject.SetActive(false);
+            }
+        }else{
+            SetDefault();
+        }
+    }
+
+    public void ChangeDataValue(int localSaveNum, string data)
+    {
+        SaveLoader saveLoader = this.gameObject.GetComponent<SaveLoader>();
+        saveLoader.tempDatas[localSaveNum] = data;
+    }
+
+    public void SetDefault()
+    {
+        this.gameObject.SetActive(true);
     }
 }

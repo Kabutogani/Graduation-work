@@ -31,13 +31,12 @@ public class KeyBookShelves : MonoBehaviour, IInteractable,ILoadableSaveData
     public void OnInteract()
     {
         textMessage = GetComponent<TextMessage>();
-        if(isGotKey){
+        if(isGotKey || !GameProgress.instance.IsPassedProgress(2)){
             textMessage.DialogStart(1);
         }else{
             textMessage.DialogStart(0);
             ChangeDataValue(0, true.ToString());
             isGotKey = true;
-            GameProgress.instance.SetProgressNum(2);
             Inventory.instance.AddItemForInventory("最初の鍵",itemObj);
         }
     }

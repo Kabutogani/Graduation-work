@@ -6,7 +6,7 @@ using UnityEngine;
 public class GameProgress : MonoBehaviour, ILoadableSaveData{
 
     public static GameProgress instance;
-    private int loadedProgressNum;
+    [SerializeField]private int loadedProgressNum;
     private int useSaveLine = 1;
 
 

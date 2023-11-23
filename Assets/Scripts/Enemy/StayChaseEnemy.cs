@@ -9,6 +9,8 @@ public class StayChaseEnemy : ChaseEnemy
         int counts;
     [SerializeField]Quaternion defaultRotate;
     [SerializeField]Animator animator;
+    //ここ後で改良
+    [SerializeField]GameObject Floor1Key;
 
     public override void WithStart(){
         _firstTargetRoute = GetNearestObjWithTag("EnemyRoute/StayChaseEnemy");
@@ -184,6 +186,10 @@ public class StayChaseEnemy : ChaseEnemy
                 if(GameProgress.instance.IsEqualProgress(3)){
                     Debug.Log("1階の鍵が出現");
                     GameProgress.instance.SetProgressNum(4);
+                    //ここあとで改良
+                    Floor1Key.SetActive(true);
+                    ChangeDataValue(0,"false");
+                    this.gameObject.SetActive(false);
                 }
                 Debug.Log("ChaseOut");
             }

@@ -102,8 +102,10 @@ public class Enemy : MonoBehaviour,ILoadableSaveData
         loadedDatas = datas;
         currentDatas = loadedDatas;
         if(datas[0] != null && datas[0] != ""){
-            if(bool.Parse(datas[0])){
+            if(!bool.Parse(datas[0])){
                 this.gameObject.SetActive(false);
+            }else{
+                SetDefault();
             }
         }else{
             SetDefault();

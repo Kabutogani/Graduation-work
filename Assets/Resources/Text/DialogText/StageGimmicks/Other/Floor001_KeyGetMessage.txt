@@ -1,0 +1,2 @@
+[[event:Floor1KeyGet]]鍵が落ちている。[next]
+「1階の鍵」を手に入れた。

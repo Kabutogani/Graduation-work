@@ -118,6 +118,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 3, z: 1}
   m_Center: {x: 0, y: -0.5, z: 0}
+--- !u!114 &2056539582594344334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1623981695786228872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68c86a1066aee7847954eae3fd7ca0e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2536038665773716424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,18 +144,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textFile:
   - {fileID: 4900000, guid: 8c33900516990a04b9a448ba1e45f466, type: 3}
---- !u!114 &2056539582594344334
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1623981695786228872}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68c86a1066aee7847954eae3fd7ca0e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &2144375410662786610 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2fb55fce9b605944d822493e59633c76,
@@ -237,5 +237,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Interactable
       objectReference: {fileID: 0}
+    - target: {fileID: 4891631529005771951, guid: 37d130e10c875314f872cd674aa17c43,
+        type: 3}
+      propertyPath: messageListener
+      value: 
+      objectReference: {fileID: 1623981695786228872}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37d130e10c875314f872cd674aa17c43, type: 3}

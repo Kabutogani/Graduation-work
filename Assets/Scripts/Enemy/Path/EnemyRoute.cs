@@ -26,8 +26,10 @@ public class EnemyRoute : MonoBehaviour
         
         Gizmos.color = Color.red;
         if(AdjoiningRoute != null){
-            foreach(var i in AdjoiningRoute){
-                Gizmos.DrawLine(gameObject.transform.position, i.transform.position);
+            if(AdjoiningRoute.Count >= 1){
+                foreach(var i in AdjoiningRoute){
+                    Gizmos.DrawLine(gameObject.transform.position, i.transform.position);
+                }
             }
         }
 	}

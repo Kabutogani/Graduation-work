@@ -51,11 +51,16 @@ public class Gakubuti : MonoBehaviour, ILoadableSaveData,IInputableText,IInterac
 
     public void OnInteract()
     {
-        if(isClearEnemy){
-            textMessage.DialogStart(0);
+        if(GameProgress.instance.loadedProgressNum >= 8){
+            if(isClearEnemy){
+                textMessage.DialogStart(0);
+            }else{
+                textMessage.DialogStart(1);
+            }
         }else{
-            textMessage.DialogStart(1);
+            textMessage.DialogStart(4);
         }
+        
     }
 
     public void SetDefault()

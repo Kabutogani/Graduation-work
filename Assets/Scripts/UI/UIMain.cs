@@ -7,6 +7,7 @@ public class UIMain : MonoBehaviour
 {
     private PlayerInputSet _playerInputSet;
     [SerializeField] private GameObject _inventoryUIObj,_configUIObj;
+    public GameObject GameOverUI;
     public static UIMain instance;
 
     // Start is called before the first frame update
@@ -25,7 +26,7 @@ public class UIMain : MonoBehaviour
         }).AddTo(this);
     }
 
-    void ChangeCursorMode(bool i){
+    public void ChangeCursorMode(bool i){
         CameraMove.ChangePOVCursorMode(i);
     }
 

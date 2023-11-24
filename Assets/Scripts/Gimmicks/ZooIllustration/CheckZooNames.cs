@@ -7,13 +7,15 @@ public static class CheckZooNames
 {
     public static bool CheckZooName(string[] nameFileArray, string inputText){
         bool b = nameFileArray.Contains(inputText);
-        // bool b = false;
-        // for (int i = 0; i < nameFileArray.Length; i++)
-        // {
-        //     if(nameFileArray[i] == inputText){
-        //         b = true;
-        //     }
-        // }
+
+        for (int i = 0; i < nameFileArray.Length; i++)
+        {
+            if(nameFileArray[i] == inputText){
+                b = true;
+            }
+
+        }
+
         return b;
     }
 }

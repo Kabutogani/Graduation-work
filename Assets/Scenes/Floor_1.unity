@@ -9476,10 +9476,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1698232560}
     m_Modifications:
+    - target: {fileID: 1288095383213619974, guid: 303fa5037acc8a1409e9c7eec1be764b,
+        type: 3}
+      propertyPath: saveNumbers.Array.data[0]
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 2089722144959249173, guid: 303fa5037acc8a1409e9c7eec1be764b,
+        type: 3}
+      propertyPath: nameFile
+      value: 
+      objectReference: {fileID: 4900000, guid: cabf1086bcaf386459266bf6d27ae034, type: 3}
+    - target: {fileID: 2089722144959249173, guid: 303fa5037acc8a1409e9c7eec1be764b,
+        type: 3}
+      propertyPath: pairEnemy
+      value: 
+      objectReference: {fileID: 6135057462421376757}
     - target: {fileID: 3845206378041101298, guid: 303fa5037acc8a1409e9c7eec1be764b,
         type: 3}
       propertyPath: m_Name
-      value: Gakubuti Variant.1
+      value: Gakubuti_Buncho
       objectReference: {fileID: 0}
     - target: {fileID: 4474109073587212616, guid: 303fa5037acc8a1409e9c7eec1be764b,
         type: 3}
@@ -9536,6 +9551,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6635402102243277667, guid: 303fa5037acc8a1409e9c7eec1be764b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9099bada221fc724d93f43191cdab8c0, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 303fa5037acc8a1409e9c7eec1be764b, type: 3}
 --- !u!4 &846739219 stripped
@@ -17590,10 +17610,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1698232560}
     m_Modifications:
+    - target: {fileID: 2089722144959249173, guid: 303fa5037acc8a1409e9c7eec1be764b,
+        type: 3}
+      propertyPath: nameFile
+      value: 
+      objectReference: {fileID: 4900000, guid: 9946045a748f00441b278509504335d7, type: 3}
+    - target: {fileID: 2089722144959249173, guid: 303fa5037acc8a1409e9c7eec1be764b,
+        type: 3}
+      propertyPath: pairEnemy
+      value: 
+      objectReference: {fileID: 2037243262}
     - target: {fileID: 3845206378041101298, guid: 303fa5037acc8a1409e9c7eec1be764b,
         type: 3}
       propertyPath: m_Name
-      value: Gakubuti Variant
+      value: Gakubuti_Buncho
       objectReference: {fileID: 0}
     - target: {fileID: 4474109073587212616, guid: 303fa5037acc8a1409e9c7eec1be764b,
         type: 3}

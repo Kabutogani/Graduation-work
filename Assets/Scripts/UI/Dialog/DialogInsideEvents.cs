@@ -6,7 +6,7 @@ using UnityEngine;
 public class DialogInsideEvents : MonoBehaviour
 {
     [SerializeField]GameObject[] itemObj;
-    [SerializeField]Enemy kaniEnemy;
+    [SerializeField]Enemy enemy;
     public void Room001KeyPlaceHint(){
         GameProgress.instance.SetProgressNum(2);
     }
@@ -14,8 +14,8 @@ public class DialogInsideEvents : MonoBehaviour
     public void MonoOkiKeyGet(){
         GameProgress.instance.SetProgressNum(5);
         Inventory.instance.AddItemForInventory("物置の鍵",itemObj[0]);
-        kaniEnemy.ChangeDataValue(0,"true");
-        kaniEnemy.gameObject.SetActive(true);
+        enemy.ChangeDataValue(0,"true");
+        enemy.gameObject.SetActive(true);
         this.gameObject.SetActive(false);
     }
 
@@ -23,5 +23,13 @@ public class DialogInsideEvents : MonoBehaviour
         GameProgress.instance.SetProgressNum(6);
         Inventory.instance.AddItemForInventory("1階の鍵",itemObj[0]);
         this.gameObject.SetActive(false);
+    }
+
+    public void GakubutiUnlock(){
+        if(GameProgress.instance.IsEqualProgress(6)){
+            GameProgress.instance.SetProgressNum(7);
+            enemy.ChangeDataValue(0,"true");
+            enemy.gameObject.SetActive(true);
+        }
     }
 }

@@ -22,5 +22,6 @@ public class DialogInsideEvents : MonoBehaviour
     public void Floor1KeyGet(){
         GameProgress.instance.SetProgressNum(6);
         Inventory.instance.AddItemForInventory("1階の鍵",itemObj[0]);
+        this.gameObject.SetActive(false);
     }
 }

@@ -26,8 +26,8 @@ public class DialogInsideEvents : MonoBehaviour
     }
 
     public void GakubutiUnlock(){
-        if(GameProgress.instance.IsEqualProgress(6)){
-            GameProgress.instance.SetProgressNum(7);
+        if(GameProgress.instance.IsEqualProgress(7)){
+            GameProgress.instance.SetProgressNum(8);
             enemy.ChangeDataValue(0,"true");
             enemy.gameObject.SetActive(true);
         }

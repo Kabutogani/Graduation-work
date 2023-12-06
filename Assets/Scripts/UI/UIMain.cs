@@ -7,7 +7,7 @@ public class UIMain : MonoBehaviour
 {
     private PlayerInputSet _playerInputSet;
     [SerializeField] private GameObject _inventoryUIObj,_configUIObj;
-    public GameObject GameOverUI, FadeUI;
+    public GameObject GameOverUI, FadeUI, InteractUI;
     public static UIMain instance;
 
     // Start is called before the first frame update

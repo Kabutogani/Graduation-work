@@ -15,6 +15,9 @@ public class PlayerInputSet : MonoBehaviour, IDisposable
     private ReadOnlyReactiveProperty<Vector2> _horizontal = default;
     public IReadOnlyReactiveProperty<Vector2> Horizontal => _horizontal;
 
+    private ReadOnlyReactiveProperty<Vector2> _mousePos = default;
+    public IReadOnlyReactiveProperty<Vector2> MousePos => _mousePos;
+
     private ReadOnlyReactiveProperty<bool> _tab = default;
     public IReadOnlyReactiveProperty<bool> Tab => _tab;
 
@@ -51,6 +54,7 @@ public class PlayerInputSet : MonoBehaviour, IDisposable
         _inputAction = _inputActionAsset.FindActionMap("Player");
 
         _horizontal = _inputAction.FindAction("Move").GetVector2Property();
+        _mousePos = _inputAction.FindAction("Look").GetVector2Property();
         _tab = _inputAction.FindAction("Tab").GetButtonProperty();
         _interact = _inputAction.FindAction("Interact").GetButtonProperty();
     }
@@ -59,6 +63,7 @@ public class PlayerInputSet : MonoBehaviour, IDisposable
     {
         _inputAction?.Dispose();
         _horizontal?.Dispose();
+        _mousePos?.Dispose();
         _tab?.Dispose();
         _interact?.Dispose();
     }

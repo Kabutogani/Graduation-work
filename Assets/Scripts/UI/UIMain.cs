@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
+using UnityEngine.UI;
 
 public class UIMain : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class UIMain : MonoBehaviour
     [SerializeField] private GameObject _inventoryUIObj,_configUIObj;
     public GameObject GameOverUI, FadeUI, InteractUI;
     public static UIMain instance;
+    public DashMeter dashMeter;
 
     // Start is called before the first frame update
     void Start()

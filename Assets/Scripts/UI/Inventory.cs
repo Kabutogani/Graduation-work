@@ -19,4 +19,23 @@ public class Inventory : MonoBehaviour
         item.transform.parent = _itemContentParent.transform;
         item.GetComponent<InventoryItem>().ItemName = itemName;
     }
+
+    public string[] GetAllItemInInventory(){
+        InventoryItem[] inventoryItem = _itemContentParent.GetComponentsInChildren<InventoryItem>();
+        string[] itemNames = new string[200];
+        for (int i = 0; i < inventoryItem.Length; i++)
+        {
+            itemNames[i] = inventoryItem[i].ItemName;
+        }
+        return itemNames;
+    }
+
+    void Start(){
+        string[] data = TextLoad.TextSplitToLine(SaveSystem.LoadInventoryDataAll(SaveSystem.CurrentLoadDataNum));
+        for(int i = 0; i < data.Length; i++){
+            if(data[i] != null && data[i] != ""){
+                AddItemForInventory(data[i], _inventoryItemObj);
+            }
+        }
+    }
 }

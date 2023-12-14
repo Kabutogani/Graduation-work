@@ -38,8 +38,13 @@ public class TitleButtons : MonoBehaviour
             SaveSystem.CreateSaveDataFile(dataNum);
             WriteNullDatas();
         }
+        if(!SaveSystem.ExistsInventoryDataFile(dataNum)){
+            SaveSystem.CreateInventoryDataFile(dataNum);
+            WriteNullDatas();
+        }
 
         SaveSystem.CurrentLoadSaveDataPath = SaveSystem.GetSaveDataPath(dataNum);
+        SaveSystem.CurrentLoadInventoryDataPath = SaveSystem.GetInventoryDataPath(dataNum);
         SaveSystem.CurrentLoadDataNum = dataNum;
         SceneLoader.LoadSceneSingle(firstLoadSceneName);
     }

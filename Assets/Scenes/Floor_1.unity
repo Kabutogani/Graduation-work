@@ -8191,7 +8191,7 @@ PrefabInstance:
     - target: {fileID: 1090241634975051388, guid: 24ac8764c762b4e4ba2f2a730e8a3c39,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1090241634975051388, guid: 24ac8764c762b4e4ba2f2a730e8a3c39,
         type: 3}
@@ -16620,6 +16620,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 449757704572522855, guid: b44c09db9f281dc4b9759a491573802f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.9391546
+      objectReference: {fileID: 0}
+    - target: {fileID: 449757704572522855, guid: b44c09db9f281dc4b9759a491573802f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.91517794
+      objectReference: {fileID: 0}
     - target: {fileID: 751193489453688315, guid: b44c09db9f281dc4b9759a491573802f,
         type: 3}
       propertyPath: m_Name
@@ -18310,6 +18320,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 991980031}
     m_Modifications:
+    - target: {fileID: 776018608, guid: b44c09db9f281dc4b9759a491573802f, type: 3}
+      propertyPath: SavePointNum
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 83060214475620161, guid: b44c09db9f281dc4b9759a491573802f,
         type: 3}
       propertyPath: m_RootOrder
@@ -18364,6 +18378,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 449757704572522855, guid: b44c09db9f281dc4b9759a491573802f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.1488867
+      objectReference: {fileID: 0}
+    - target: {fileID: 449757704572522855, guid: b44c09db9f281dc4b9759a491573802f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.00000023841858
+      objectReference: {fileID: 0}
+    - target: {fileID: 449757704572522855, guid: b44c09db9f281dc4b9759a491573802f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.624554
       objectReference: {fileID: 0}
     - target: {fileID: 751193489453688315, guid: b44c09db9f281dc4b9759a491573802f,
         type: 3}
@@ -20197,7 +20226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   searchArea: {fileID: 6135057462951667944}
-  isDefaultActive: 0
+  isDefaultActive: 1
   enemyBody: {fileID: 901392380}
   boxCollider: {fileID: 6135057462914617011}
 --- !u!1 &6135057462421376759

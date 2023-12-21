@@ -20898,7 +20898,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 300218545, guid: 5263212081e73784994cc80b709f2a6b, type: 3}
       propertyPath: defaultGaugeMax
-      value: 50
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 300218546, guid: 5263212081e73784994cc80b709f2a6b, type: 3}
       propertyPath: saveNumbers.Array.data[0]

@@ -82,11 +82,26 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: -7511558181221131132, guid: 85ff2c912a191cb4aa221bb496aeabe2,
+    - target: {fileID: -3722405182657794361, guid: 85ff2c912a191cb4aa221bb496aeabe2,
         type: 3}
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3722405182657794361, guid: 85ff2c912a191cb4aa221bb496aeabe2,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -3722405182657794361, guid: 85ff2c912a191cb4aa221bb496aeabe2,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4272585857fe38348b40b7385a921604, type: 2}
+    - target: {fileID: -3722405182657794361, guid: 85ff2c912a191cb4aa221bb496aeabe2,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 623d27cb6336e0c43888eef86c3bf502, type: 2}
     - target: {fileID: 919132149155446097, guid: 85ff2c912a191cb4aa221bb496aeabe2,
         type: 3}
       propertyPath: m_Name
@@ -94,3 +109,51 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85ff2c912a191cb4aa221bb496aeabe2, type: 3}
+--- !u!1 &2884065383317652037 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 85ff2c912a191cb4aa221bb496aeabe2,
+    type: 3}
+  m_PrefabInstance: {fileID: 2650135277492469524}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &2650135275868189199
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2884065383317652037}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f6585e2bc7508e14c9b18c6bc715a61e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2650135275868189201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2884065383317652037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c2100444fa47de42942fd58e4d4f03d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skinnedMeshRenderer: {fileID: 7534653890557415891}
+  materials:
+  - {fileID: 2100000, guid: 4272585857fe38348b40b7385a921604, type: 2}
+  - {fileID: 2100000, guid: 623d27cb6336e0c43888eef86c3bf502, type: 2}
+--- !u!137 &7534653890557415891 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -3722405182657794361, guid: 85ff2c912a191cb4aa221bb496aeabe2,
+    type: 3}
+  m_PrefabInstance: {fileID: 2650135277492469524}
+  m_PrefabAsset: {fileID: 0}

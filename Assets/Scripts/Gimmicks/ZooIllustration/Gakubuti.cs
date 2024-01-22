@@ -41,15 +41,27 @@ public class Gakubuti : MonoBehaviour, ILoadableSaveData,IInputableText,IInterac
                 
             }
         }
+        if(isClearEnemy){
+            if(pairEnemy.GetComponent<PatrolEnemy>()){
+                pairEnemy.GetComponent<PatrolEnemy>().isDead = true;
+                pairEnemy.gameObject.SetActive(false);
+            }
+        }
     }
 
     public void OnEnterInputField(string inputText)
     {
         string[] nameFileText = TextLoad.TextSplitToLine(TextLoad.Load(nameFile));
         if(CheckZooNames.CheckZooName(nameFileText,inputText)){
+            if(pairEnemy.GetComponent<PatrolEnemy>()){
+                pairEnemy.GetComponent<PatrolEnemy>().isDead = true;
+                pairEnemy.gameObject.SetActive(false);
+            }else{
+                pairEnemy.ChangeDataValue(0,"false");
+                pairEnemy.gameObject.SetActive(false);
+            }
             textMessage.DialogStart(2);
-            pairEnemy.ChangeDataValue(0,"false");
-            pairEnemy.gameObject.SetActive(false);
+            
             ChangeDataValue(0, "true");
             isClearEnemy = true;
             Debug.Log("正解してます");

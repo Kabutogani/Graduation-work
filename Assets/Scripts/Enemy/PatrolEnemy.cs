@@ -9,6 +9,7 @@ public class PatrolEnemy : ChaseEnemy
     [SerializeField]Animator animator;
     [SerializeField]PatrolEnemyManager patrolEnemyManager;
     [SerializeField]float stackClearTime,maxStackClearTime;
+    [SerializeField]public bool isDead;
 
     public override void WithStart(){
         SwitchMode(Mode.Patrol);
@@ -201,12 +202,21 @@ public class PatrolEnemy : ChaseEnemy
 
     void OnEnable(){
         SaveLoader saveLoader = this.gameObject.GetComponent<SaveLoader>();
-        if(saveLoader.tempDatas[0] != null && saveLoader.tempDatas[0] != ""){
-            if(!bool.Parse(saveLoader.tempDatas[0])){
-                this.gameObject.SetActive(true);
-            }else{
-                this.gameObject.SetActive(false);
+
+        if(isDead){
+            this.gameObject.SetActive(false);
+        }else{
+            if(saveLoader.tempDatas[0] != null && saveLoader.tempDatas[0] != ""){
+                if(bool.Parse(saveLoader.tempDatas[0])){
+                    this.gameObject.SetActive(true);
+                }else{
+                    this.gameObject.SetActive(false);
+                }
+                }else{
+                    ChangeDataValue(0,"true");
+            
             }
         }
+        
     } 
 }

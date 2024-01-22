@@ -27,7 +27,7 @@ public class SaveLoader : MonoBehaviour
         Load();
     }
 
-    void Load(){
+    public void Load(){
 
         foreach(int i in saveNumbers){
             loadedDatas.Add(SaveSystem.LoadLine(i));

@@ -11,6 +11,7 @@ TagManager:
   - Enemy/Bird
   - Enemy/StayChaseEnemy
   - EnemyRoute/StayChaseEnemy
+  - EnemyRoute/PatrolEnemy
   layers:
   - Default
   - TransparentFX

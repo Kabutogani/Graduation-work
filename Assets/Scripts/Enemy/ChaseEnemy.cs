@@ -15,7 +15,7 @@ public class ChaseEnemy : Enemy
 
     [SerializeField, ReadOnly]public Mode _currentMode = Mode.Idle;
     [SerializeField]protected float chaseSpeed,patrolSpeed;
-    [SerializeField]protected GameObject _firstTargetRoute;
+    [SerializeField]public GameObject _firstTargetRoute;
     [SerializeField]protected EnemyRoute _nextRoute,_beforeRoute;
     [SerializeField]protected RouteCheckArea routeCheckArea;
     [SerializeField]protected float _chaseTimeRemaining;

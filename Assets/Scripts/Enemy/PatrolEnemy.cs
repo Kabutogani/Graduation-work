@@ -201,10 +201,12 @@ public class PatrolEnemy : ChaseEnemy
 
     void OnEnable(){
         SaveLoader saveLoader = this.gameObject.GetComponent<SaveLoader>();
-        if(!bool.Parse(saveLoader.tempDatas[0])){
-            this.gameObject.SetActive(false);
-        }else{
-
+        if(saveLoader.tempDatas[0] != null && saveLoader.tempDatas[0] != ""){
+            if(!bool.Parse(saveLoader.tempDatas[0])){
+                this.gameObject.SetActive(true);
+            }else{
+                this.gameObject.SetActive(false);
+            }
         }
     } 
 }

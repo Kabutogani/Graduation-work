@@ -21048,7 +21048,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   searchArea: {fileID: 435820547}
-  isDefaultActive: 0
+  isDefaultActive: 1
   _currentMode: 0
   chaseSpeed: 0.1
   patrolSpeed: 0
@@ -24055,7 +24055,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   searchArea: {fileID: 1820345184}
-  isDefaultActive: 0
+  isDefaultActive: 1
   _currentMode: 0
   chaseSpeed: 0.1
   patrolSpeed: 0

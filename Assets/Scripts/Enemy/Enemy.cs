@@ -110,6 +110,7 @@ public class Enemy : MonoBehaviour,ILoadableSaveData
             }
         }else{
             SetDefault();
+            
         }
     }
 
@@ -123,5 +124,6 @@ public class Enemy : MonoBehaviour,ILoadableSaveData
     {
         ChangeDataValue(0, isDefaultActive.ToString());
         this.gameObject.SetActive(isDefaultActive);
+        Debug.Log("setDefault");
     }
 }

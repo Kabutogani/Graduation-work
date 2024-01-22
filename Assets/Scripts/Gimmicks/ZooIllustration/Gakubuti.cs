@@ -11,6 +11,8 @@ public class Gakubuti : MonoBehaviour, ILoadableSaveData,IInputableText,IInterac
     [SerializeField]Enemy pairEnemy;
     [SerializeField]TextAsset nameFile;
     private TextMessage textMessage;
+    [SerializeField]string getPanelName;
+    [SerializeField]GameObject[] itemObj;
 
     void Start(){
         textMessage = GetComponent<TextMessage>();
@@ -51,6 +53,7 @@ public class Gakubuti : MonoBehaviour, ILoadableSaveData,IInputableText,IInterac
             ChangeDataValue(0, "true");
             isClearEnemy = true;
             Debug.Log("正解してます");
+            Inventory.instance.AddItemForInventory(getPanelName,itemObj[0]);
         }else{
             textMessage.DialogStart(3);
             Debug.Log("不正解です");

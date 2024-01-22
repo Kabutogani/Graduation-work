@@ -123,6 +123,10 @@ public class Enemy : MonoBehaviour,ILoadableSaveData
     public void SetDefault()
     {
         ChangeDataValue(0, isDefaultActive.ToString());
+        // SaveLoader saveLoader = this.gameObject.GetComponent<SaveLoader>();
+        // if(saveLoader.saveNumbers.Length <= 2){
+        //     ChangeDataValue(1, "false");
+        // }
         this.gameObject.SetActive(isDefaultActive);
         Debug.Log("setDefault");
     }

@@ -37,4 +37,11 @@ public class DialogInsideEvents : MonoBehaviour
             }
         }
     }
+
+    public void Floor2PanelGet(){
+        Inventory.instance.AddItemForInventory("ライオンのピース",itemObj[0]);
+        Inventory.instance.AddItemForInventory("マグロのピース",itemObj[0]);
+        this.gameObject.SetActive(false);
+        this.gameObject.GetComponent<LionPanel>().ChangeDataValue(0,"false");
+    }
 }

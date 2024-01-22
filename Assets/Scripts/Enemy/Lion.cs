@@ -10,7 +10,7 @@ public class Lion : Enemy
     //ここ後で改良
     [SerializeField]Vector3 defaultPosition;
     public Tuna tuna;
-    [SerializeField]GameObject lionBlockObj;
+    [SerializeField]GameObject lionBlockObj,pieceObj;
 
     public enum Mode{
         Idle,
@@ -93,6 +93,8 @@ public class Lion : Enemy
         this.gameObject.transform.LookAt(tuna.gameObject.transform);
         ChangeDataValue(0, "false");
         tuna.ChangeDataValue(0, "false");
+        pieceObj.SetActive(true);
+        pieceObj.GetComponent<LionPanel>().ChangeDataValue(0,"true");
         _navMeshAgent.velocity = Vector3.zero;
         this.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
         _navMeshAgent.isStopped = true;

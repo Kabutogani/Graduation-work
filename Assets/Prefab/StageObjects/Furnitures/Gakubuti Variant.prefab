@@ -273,8 +273,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8b32d2c5136cb640b409609fb69eed8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isClearEnemy: 0
   pairEnemy: {fileID: 0}
   nameFile: {fileID: 0}
+  getPanelName: 
+  itemObj:
+  - {fileID: 1562994066760760908, guid: 3dd9b7462a470604ea8e9c82ae8539a2, type: 3}
 --- !u!114 &4108082059307598371
 MonoBehaviour:
   m_ObjectHideFlags: 0

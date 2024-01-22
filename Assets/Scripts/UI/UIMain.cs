@@ -8,7 +8,7 @@ public class UIMain : MonoBehaviour
 {
     private PlayerInputSet _playerInputSet;
     [SerializeField] private GameObject _inventoryUIObj,_configUIObj;
-    public GameObject GameOverUI, FadeUI, InteractUI;
+    public GameObject GameOverUI, FadeUI, InteractUI, PuzzleUI;
     public static UIMain instance;
     public DashMeter dashMeter;
 

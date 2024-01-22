@@ -31,14 +31,16 @@ public class PlayerMove : MonoBehaviour
     }
 
     void Move(Vector2 vector){
-        Vector3 camForward = Vector3.Scale(Camera.main.transform.forward, new Vector3(1,0,1)).normalized;
-        Vector3 moveDirection = camForward * vector.y + Camera.main.transform.right * vector.x;
-        if(_isDash && _dashMeter.MeterGauge.Value > 0){
-            MoveSpeed = DashSpeed;
-            _dashMeter.MeterGauge.Value = Mathf.Clamp(_dashMeter.MeterGauge.Value - Time.deltaTime * dashMeterDecreaseSpeed, _dashMeter.slider.minValue ,_dashMeter.slider.maxValue);
-        }else{
-            MoveSpeed = DefaultMoveSpeed;
+        if(!PlayerStateMgr.instance.IsUseUI){
+            Vector3 camForward = Vector3.Scale(Camera.main.transform.forward, new Vector3(1,0,1)).normalized;
+            Vector3 moveDirection = camForward * vector.y + Camera.main.transform.right * vector.x;
+            if(_isDash && _dashMeter.MeterGauge.Value > 0){
+                MoveSpeed = DashSpeed;
+                _dashMeter.MeterGauge.Value = Mathf.Clamp(_dashMeter.MeterGauge.Value - Time.deltaTime * dashMeterDecreaseSpeed, _dashMeter.slider.minValue ,_dashMeter.slider.maxValue);
+            }else{
+                MoveSpeed = DefaultMoveSpeed;
+            }
+            _rigidbody.velocity = moveDirection * MoveSpeed + new Vector3(0, _rigidbody.velocity.y, 0) * Time.deltaTime;
         }
-        _rigidbody.velocity = moveDirection * MoveSpeed + new Vector3(0, _rigidbody.velocity.y, 0) * Time.deltaTime;
     }
 }

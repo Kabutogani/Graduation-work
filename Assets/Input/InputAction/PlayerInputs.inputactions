@@ -58,6 +58,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "ClickDown",
+                    "type": "Button",
+                    "id": "2fe8ca28-6c1b-43aa-97e2-6a116cbf07e9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ClickRelease",
+                    "type": "Button",
+                    "id": "96fe4a16-5911-40a8-a1f9-509ecb9d9945",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -377,6 +395,28 @@
                     "processors": "",
                     "groups": "PlayerControlScheme",
                     "action": "Dash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3f8dfab1-19ec-46da-879a-d5ba63b31ae7",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "PlayerControlScheme",
+                    "action": "ClickDown",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8e21cceb-0b45-4892-a492-41991f681db4",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "Press(behavior=1)",
+                    "processors": "",
+                    "groups": "PlayerControlScheme",
+                    "action": "ClickRelease",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -7,9 +7,11 @@ public class PlayerStateMgr : MonoBehaviour
 {   
     public static PlayerStateMgr instance;
     public bool isHiding;
+    public bool IsUseUI;
 
     void Start(){
         isHiding = false;
+        IsUseUI = false;
     }
 
     void Awake(){

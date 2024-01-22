@@ -14,6 +14,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Hole
     second: {fileID: 2100000, guid: be61b6f805506ae4d91c4f455f133cbe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: OutLine
+    second: {fileID: 2100000, guid: be61b6f805506ae4d91c4f455f133cbe, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

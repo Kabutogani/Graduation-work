@@ -80,6 +80,24 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ClickDown"",
+                    ""type"": ""Button"",
+                    ""id"": ""2fe8ca28-6c1b-43aa-97e2-6a116cbf07e9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ClickRelease"",
+                    ""type"": ""Button"",
+                    ""id"": ""96fe4a16-5911-40a8-a1f9-509ecb9d9945"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -399,6 +417,28 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""PlayerControlScheme"",
                     ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3f8dfab1-19ec-46da-879a-d5ba63b31ae7"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": ""PlayerControlScheme"",
+                    ""action"": ""ClickDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8e21cceb-0b45-4892-a492-41991f681db4"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": ""Press(behavior=1)"",
+                    ""processors"": """",
+                    ""groups"": ""PlayerControlScheme"",
+                    ""action"": ""ClickRelease"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -943,6 +983,8 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
         m_Player_Tab = m_Player.FindAction("Tab", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
+        m_Player_ClickDown = m_Player.FindAction("ClickDown", throwIfNotFound: true);
+        m_Player_ClickRelease = m_Player.FindAction("ClickRelease", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1022,6 +1064,8 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Tab;
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_Dash;
+    private readonly InputAction m_Player_ClickDown;
+    private readonly InputAction m_Player_ClickRelease;
     public struct PlayerActions
     {
         private @PlayerInputs m_Wrapper;
@@ -1032,6 +1076,8 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
         public InputAction @Tab => m_Wrapper.m_Player_Tab;
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @Dash => m_Wrapper.m_Player_Dash;
+        public InputAction @ClickDown => m_Wrapper.m_Player_ClickDown;
+        public InputAction @ClickRelease => m_Wrapper.m_Player_ClickRelease;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1059,6 +1105,12 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                 @Dash.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDash;
                 @Dash.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDash;
                 @Dash.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDash;
+                @ClickDown.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnClickDown;
+                @ClickDown.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnClickDown;
+                @ClickDown.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnClickDown;
+                @ClickRelease.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnClickRelease;
+                @ClickRelease.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnClickRelease;
+                @ClickRelease.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnClickRelease;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -1081,6 +1133,12 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                 @Dash.started += instance.OnDash;
                 @Dash.performed += instance.OnDash;
                 @Dash.canceled += instance.OnDash;
+                @ClickDown.started += instance.OnClickDown;
+                @ClickDown.performed += instance.OnClickDown;
+                @ClickDown.canceled += instance.OnClickDown;
+                @ClickRelease.started += instance.OnClickRelease;
+                @ClickRelease.performed += instance.OnClickRelease;
+                @ClickRelease.canceled += instance.OnClickRelease;
             }
         }
     }
@@ -1232,6 +1290,8 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
         void OnTab(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
+        void OnClickDown(InputAction.CallbackContext context);
+        void OnClickRelease(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

@@ -27,6 +27,12 @@ public class PlayerInputSet : MonoBehaviour, IDisposable
     private ReadOnlyReactiveProperty<bool> _interact = default;
     public IReadOnlyReactiveProperty<bool> Interact => _interact;
 
+    private ReadOnlyReactiveProperty<bool> _clickDown = default;
+    public IReadOnlyReactiveProperty<bool> ClickDown => _clickDown;
+
+    private ReadOnlyReactiveProperty<bool> _clickRelease = default;
+    public IReadOnlyReactiveProperty<bool> ClickRelease => _clickRelease;
+
     private void OnEnable(){
         disableTargetObject = GameObject.Find(this.gameObject.name);;
         _inputAction.Enable();
@@ -61,6 +67,8 @@ public class PlayerInputSet : MonoBehaviour, IDisposable
         _tab = _inputAction.FindAction("Tab").GetButtonProperty();
         _dash = _inputAction.FindAction("Dash").GetButtonProperty();
         _interact = _inputAction.FindAction("Interact").GetButtonProperty();
+        _clickDown = _inputAction.FindAction("ClickDown").GetButtonProperty();
+        _clickRelease = _inputAction.FindAction("ClickRelease").GetButtonProperty();
     }
 
     public void Dispose()
@@ -71,5 +79,7 @@ public class PlayerInputSet : MonoBehaviour, IDisposable
         _tab?.Dispose();
         _dash?.Dispose();
         _interact?.Dispose();
+        _clickDown?.Dispose();
+        _clickRelease?.Dispose();
     }
 }

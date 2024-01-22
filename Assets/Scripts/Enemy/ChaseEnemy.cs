@@ -10,7 +10,8 @@ public class ChaseEnemy : Enemy
         Idle,
         Patrol,
         Caution,
-        Chase
+        Chase,
+        Death
     }
 
     [SerializeField, ReadOnly]public Mode _currentMode = Mode.Idle;

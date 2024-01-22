@@ -10,6 +10,7 @@ public class Tuna : ChaseEnemy
     [SerializeField]Animator animator;
     //ここ後で改良
     [SerializeField]Vector3 defaultPosition;
+    [SerializeField]GameObject gameOverLine;
 
     public override void WithStart(){
         
@@ -47,6 +48,10 @@ public class Tuna : ChaseEnemy
             case Mode.Chase:
                 StartChase();
             break;
+
+            case Mode.Death:
+                StartDeath();
+            break;
         }
     }
 
@@ -66,6 +71,10 @@ public class Tuna : ChaseEnemy
 
             case Mode.Chase:
                 Chase();
+            break;
+
+            case Mode.Death:
+                Death();
             break;
         }
     }
@@ -88,6 +97,18 @@ public class Tuna : ChaseEnemy
 
     void StartChase(){
         _currentMode = Mode.Chase;
+    }
+
+    void StartDeath(){
+        _currentMode = Mode.Death;
+        AnimBoolReset();
+        animator.SetBool("Death", true);
+
+        _navMeshAgent.velocity = Vector3.zero;
+        ChaseEffect.instance.EffectUIAlpha.Value = 0f;
+        _navMeshAgent.isStopped = true;
+        gameOverLine.SetActive(false);
+        this.gameObject.GetComponent<CapsuleCollider>().enabled = false;
     }
 
     void Idle(){
@@ -148,7 +169,12 @@ public class Tuna : ChaseEnemy
         }
     }
 
+    void Death(){
+
+    }
+
     void AnimBoolReset(){
         animator.SetBool("Swim", false);
+        animator.SetBool("Death", false);
     }
 }

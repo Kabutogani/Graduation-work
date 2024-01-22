@@ -28,8 +28,8 @@ TagManager:
   - Route/RouteChecker
   - Route/Route
   - PostProcess
-  - 
-  - 
+  - Enemy/Lion
+  - Enemy/LionBlock
   - 
   - 
   - 

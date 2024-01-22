@@ -7,6 +7,7 @@ public class PuzzleUI : MonoBehaviour
 {
     private float beforeSensi_V, beforeSensi_H;
     [SerializeField]GameObject puzzleUIObj;
+    public PuzzlePanel[] PuzzlePanels = new PuzzlePanel[4];
 
     public void OnInteractPuzzle(){
         PlayerStateMgr.instance.IsUseUI = true;
@@ -38,5 +39,18 @@ public class PuzzleUI : MonoBehaviour
             vcam.GetCinemachineComponent(CinemachineCore.Stage.Aim).GetComponent<CinemachinePOV>().m_VerticalAxis.m_MaxSpeed = beforeSensi_V;
             vcam.GetCinemachineComponent(CinemachineCore.Stage.Aim).GetComponent<CinemachinePOV>().m_HorizontalAxis.m_MaxSpeed = beforeSensi_H;
         } 
+    }
+
+    public void ResetButton(){
+        foreach (PuzzlePanel i in PuzzlePanels)
+        {
+            if(i != null){
+                if(i.nowSlot != null){
+                    i.nowSlot.inSidePuzzlePanel = null;
+                }
+                i.ClearEvent();
+                i.ResetPanelPos();
+            }
+        }
     }
 }

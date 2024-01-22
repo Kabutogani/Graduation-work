@@ -2,16 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PatrolEnemy : ChaseEnemy
+public class Tuna : ChaseEnemy
 {
+
     int counts;
     [SerializeField]Quaternion defaultRotate;
     [SerializeField]Animator animator;
-    [SerializeField]PatrolEnemyManager patrolEnemyManager;
-    [SerializeField]float stackClearTime,maxStackClearTime;
+    //ここ後で改良
+    [SerializeField]Vector3 defaultPosition;
 
     public override void WithStart(){
-        SwitchMode(Mode.Patrol);
+        
         _chaseTarget = GameObject.FindGameObjectWithTag("Player");
         _chaseTimeRemaining = 0f;
     }
@@ -27,11 +28,6 @@ public class PatrolEnemy : ChaseEnemy
                 _chaseTimeRemaining = 0;
             }
         }
-        if(stackClearTime > maxStackClearTime){
-            patrolEnemyManager.SendMessage("PatrolEnd", this);
-            stackClearTime = 0;
-        }
-        stackClearTime += Time.deltaTime;
     }
 
     public void SwitchMode(Mode mode){
@@ -79,67 +75,27 @@ public class PatrolEnemy : ChaseEnemy
         
     }
 
-    
-
     void StartIdle(){
-
         _currentMode = Mode.Idle;
-        AnimBoolReset();
-        animator.SetBool("Idle", true);
-        
     }
     void StartPatrol(){
         _currentMode = Mode.Patrol;
-        AnimBoolReset();
-        animator.SetBool("Walk", true);
-        
     }
 
     void StartCaution(){
         _currentMode = Mode.Caution;
-        AnimBoolReset();
-        animator.SetBool("Walk", true);
-        
     }
 
     void StartChase(){
         _currentMode = Mode.Chase;
-        AnimBoolReset();
-        animator.SetBool("Run", true);
-        
     }
 
     void Idle(){
         
-        if(SearchToSearchableRay() != null && SearchToObject() == SearchToSearchableRay()){
-            SwitchMode(Mode.Chase);
-        }
-
-        if(SearchToSearchableRay() && SearchToObject() == SearchToSearchableRay()){
-            SwitchMode(Mode.Chase);
-        }else{
-            if(_chaseTimeRemaining < 0){
-                SwitchMode(Mode.Patrol);
-            }
-        }
-
-        if(routeCheckArea.HitObj == _firstTargetRoute){
-            if(SearchToSearchableRay() == null){
-                patrolEnemyManager.SendMessage("PatrolEnd", this);
-                stackClearTime = 0;
-            }
-        }
+        
     }
 
     void Patrol(){
-        if(routeCheckArea.HitObj == null){
-            _navMeshAgent.SetDestination(_firstTargetRoute.gameObject.transform.position);
-        }else{
-            if(routeCheckArea.HitObj == _firstTargetRoute){
-                SwitchMode(Mode.Idle);
-                this.gameObject.transform.rotation = defaultRotate;
-            }
-        }
 
         if(SearchToSearchableRay() != null && SearchToObject() == SearchToSearchableRay()){
             SwitchMode(Mode.Chase);
@@ -162,7 +118,6 @@ public class PatrolEnemy : ChaseEnemy
                 SwitchMode(Mode.Patrol);
             }
         }
-        Debug.Log("Cautionいった");
     }
 
     void Chase(){
@@ -184,27 +139,16 @@ public class PatrolEnemy : ChaseEnemy
                 Debug.Log("Chaseins");
                 //ChaseEffect.instance.EffectUIAlpha.Value = 0f;
             }else{
-                SwitchMode(Mode.Patrol);
                 ChaseEffect.instance.EffectUIAlpha.Value = 0f;
                 Debug.Log("ChaseOut");
+                SwitchMode(Mode.Idle);
+                this.transform.position = defaultPosition;
+                _navMeshAgent.SetDestination(defaultPosition);
             }
         }
-
-        stackClearTime = 0;
     }
 
     void AnimBoolReset(){
-        animator.SetBool("Run", false);
-        animator.SetBool("Idle", false);
-        animator.SetBool("Walk", false);
+        animator.SetBool("Swim", false);
     }
-
-    void OnEnable(){
-        SaveLoader saveLoader = this.gameObject.GetComponent<SaveLoader>();
-        if(!bool.Parse(saveLoader.tempDatas[0])){
-            this.gameObject.SetActive(false);
-        }else{
-
-        }
-    } 
 }

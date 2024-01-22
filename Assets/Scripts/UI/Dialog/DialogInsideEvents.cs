@@ -22,14 +22,19 @@ public class DialogInsideEvents : MonoBehaviour
     public void Floor1KeyGet(){
         GameProgress.instance.SetProgressNum(6);
         Inventory.instance.AddItemForInventory("1階の鍵",itemObj[0]);
+        if(this.gameObject.GetComponent<Floor1Key>()){
+            this.gameObject.GetComponent<Floor1Key>().ChangeDataValue(0, "true");
+        }
         this.gameObject.SetActive(false);
     }
 
     public void GakubutiUnlock(){
         if(GameProgress.instance.IsEqualProgress(7)){
             GameProgress.instance.SetProgressNum(8);
-            enemy.ChangeDataValue(0,"true");
-            enemy.gameObject.SetActive(true);
+            if(enemy != null){
+                enemy.ChangeDataValue(0,"true");
+                enemy.gameObject.SetActive(true);
+            }
         }
     }
 }

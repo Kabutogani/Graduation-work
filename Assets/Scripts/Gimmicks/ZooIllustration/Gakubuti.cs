@@ -7,7 +7,7 @@ public class Gakubuti : MonoBehaviour, ILoadableSaveData,IInputableText,IInterac
 {
     private List<string> loadedDatas;
     private List<string> currentDatas;
-    private bool isClearEnemy;
+    [SerializeField] bool isClearEnemy;
     [SerializeField]Enemy pairEnemy;
     [SerializeField]TextAsset nameFile;
     private TextMessage textMessage;
@@ -30,6 +30,14 @@ public class Gakubuti : MonoBehaviour, ILoadableSaveData,IInputableText,IInterac
             isClearEnemy = bool.Parse(datas[0]);
         }else{
             SetDefault();
+        }
+        if(!pairEnemy.isDefaultActive){
+            if(datas[0] != null && datas[0] != ""){
+                if(isClearEnemy){
+                    pairEnemy.gameObject.SetActive(false);   
+                }
+                
+            }
         }
     }
 

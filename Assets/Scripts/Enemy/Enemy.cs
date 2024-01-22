@@ -13,7 +13,7 @@ public class Enemy : MonoBehaviour,ILoadableSaveData
     [SerializeField]SearchArea searchArea;
     private Rigidbody _rigidbody;
     protected NavMeshAgent _navMeshAgent;
-    [SerializeField]bool isDefaultActive;
+    public bool isDefaultActive;
 
     // Start is called before the first frame update
     void Start()
@@ -103,10 +103,10 @@ public class Enemy : MonoBehaviour,ILoadableSaveData
         loadedDatas = datas;
         currentDatas = loadedDatas;
         if(datas[0] != null && datas[0] != ""){
-            if(!bool.Parse(datas[0])){
-                this.gameObject.SetActive(!isDefaultActive);
+            if(bool.Parse(datas[0])){
+                this.gameObject.SetActive(true);
             }else{
-                SetDefault();
+                this.gameObject.SetActive(false);
             }
         }else{
             SetDefault();
@@ -121,6 +121,7 @@ public class Enemy : MonoBehaviour,ILoadableSaveData
 
     public void SetDefault()
     {
+        ChangeDataValue(0, isDefaultActive.ToString());
         this.gameObject.SetActive(isDefaultActive);
     }
 }

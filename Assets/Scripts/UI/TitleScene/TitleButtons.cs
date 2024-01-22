@@ -6,7 +6,7 @@ using UnityEngine;
 public class TitleButtons : MonoBehaviour
 {
     [SerializeField]GameObject _UIparent, _UIBackFade;
-    [SerializeField]string firstLoadSceneName;
+    [SerializeField]string[] firstLoadSceneName;
     private int nowLoadingDataNum;
 
     public void PushButton(GameObject g){
@@ -46,7 +46,15 @@ public class TitleButtons : MonoBehaviour
         SaveSystem.CurrentLoadSaveDataPath = SaveSystem.GetSaveDataPath(dataNum);
         SaveSystem.CurrentLoadInventoryDataPath = SaveSystem.GetInventoryDataPath(dataNum);
         SaveSystem.CurrentLoadDataNum = dataNum;
-        SceneLoader.LoadSceneSingle(firstLoadSceneName);
+        if(SaveSystem.LoadLine(2) != null && SaveSystem.LoadLine(2) != ""){
+            if(int.Parse(SaveSystem.LoadLine(2)) >= 4){
+                SceneLoader.LoadSceneSingle(firstLoadSceneName[1]);
+            }else{
+                SceneLoader.LoadSceneSingle(firstLoadSceneName[0]);
+            }
+        } else{
+            SceneLoader.LoadSceneSingle(firstLoadSceneName[0]);
+        }
     }
 
     public void ExitsGame(){

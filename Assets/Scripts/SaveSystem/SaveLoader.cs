@@ -16,7 +16,8 @@ public class SaveLoader : MonoBehaviour
             if(SaveSystem.SaveLoaders[i] == null){
                 SaveSystem.SaveLoaders[i] = this;
             }else{
-                Debug.LogError("他のSaveLoaderとセーブの格納行がかぶっています!!", this.gameObject);
+                Debug.LogError("他のSaveLoaderとセーブの格納行がかぶっています!! 対象 :" + this.gameObject.name, this.gameObject);
+                //SaveSystem.SaveLoaders[i] = this;
             }
         }
     }

@@ -46,6 +46,7 @@ public class Slot : MonoBehaviour,IDropHandler
             puzzleUI.PuzzlePanels[slotNum] = inSidePuzzlePanel;
             inSidePuzzlePanel.nowSlot = this;
             this.gameObject.SetActive(false);
+            puzzleUI.CheckSlotPanels();
         }
     }
 

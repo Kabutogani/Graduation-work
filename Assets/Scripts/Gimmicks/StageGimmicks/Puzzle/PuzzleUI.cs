@@ -3,18 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
-public class PuzzleUI : MonoBehaviour
+public class PuzzleUI : MonoBehaviour,ILoadableSaveData
 {
     private float beforeSensi_V, beforeSensi_H;
-    [SerializeField]GameObject puzzleUIObj;
+    [SerializeField]GameObject puzzleUIObj,itemObj;
     public PuzzlePanel[] PuzzlePanels = new PuzzlePanel[4];
+    [SerializeField]GameObject[] panels;
+    public bool isCleared;
+    TextMessage textMessage;
 
-    public void OnInteractPuzzle(){
+    public void OnInteractPuzzle(string[] panelNames){
         PlayerStateMgr.instance.IsUseUI = true;
         UIMain.instance.ChangeCursorMode(false);
         UIMain.instance.OnInventoryUI(false);
         UIMain.instance.OnConfigUI(false);
         puzzleUIObj.SetActive(true);
+        CheckHavePanels(panelNames);
         SetSensi(true);
     }
 
@@ -57,6 +61,11 @@ public class PuzzleUI : MonoBehaviour
     public void CheckSlotPanels(){
         if(CheckSlots()){
             ExitPuzzle();
+            ChangeDataValue(0, "true");
+            isCleared = true;
+            textMessage = GetComponent<TextMessage>();
+            textMessage.DialogStart(0);
+            Inventory.instance.AddItemForInventory("玄関の鍵",itemObj);
             Debug.Log("パズルに正解しました");
         }else{
             Debug.Log("パズル不正解");
@@ -108,5 +117,38 @@ public class PuzzleUI : MonoBehaviour
             }
         }
         return result;
+    }
+
+    public void CheckHavePanels(string[] panelNames){
+        for (int i = 0; i < panelNames.Length; i++)
+        {
+            if(ItemChecker.CheckItemOnInventory(panelNames[i])){
+                panels[i].SetActive(true);
+            };
+        }
+    }
+
+    public void DataLoad(List<string> datas)
+    {
+        if(datas[0] != null && datas[0] != ""){
+            if(bool.Parse(datas[0])){
+                isCleared = true;
+            }else{
+                isCleared = false;
+            }
+        }else{
+            SetDefault();
+        }
+    }
+
+    public void ChangeDataValue(int localSaveNum, string data)
+    {
+        SaveLoader saveLoader = this.gameObject.GetComponent<SaveLoader>();
+        saveLoader.tempDatas[localSaveNum] = data;
+    }
+
+    public void SetDefault()
+    {
+        ChangeDataValue(0, "false");
     }
 }

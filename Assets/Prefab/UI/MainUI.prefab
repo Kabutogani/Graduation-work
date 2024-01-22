@@ -832,6 +832,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1050712063}
   - component: {fileID: 1050712064}
+  - component: {fileID: 4316109984422054679}
+  - component: {fileID: 4889085059945110484}
   m_Layer: 5
   m_Name: PuzzleUI
   m_TagString: Untagged
@@ -873,11 +875,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   puzzleUIObj: {fileID: 126389365}
+  itemObj: {fileID: 0}
   PuzzlePanels:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  panels:
+  - {fileID: 7572906687395218926}
+  - {fileID: 8600294148613772205}
+  - {fileID: 8600294149169717206}
+  - {fileID: 8600294148951442847}
+  - {fileID: 8600294149303279643}
+  - {fileID: 8600294148855259412}
+  - {fileID: 8600294149116516024}
+  isCleared: 0
+--- !u!114 &4316109984422054679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1050712062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea5f8223a04786e41bc80a2d4ac7f931, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveNumbers: 64000000
+  loadedDatas: []
+  tempDatas: []
+--- !u!114 &4889085059945110484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1050712062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1749bf82ac9e414cbab8e66c19170ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textFile:
+  - {fileID: 4900000, guid: 1a9928721e73dbe4e8f79f4ec53272bc, type: 3}
 --- !u!1 &1059675333
 GameObject:
   m_ObjectHideFlags: 0
@@ -6586,6 +6627,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UmiusiPiece
       objectReference: {fileID: 0}
+    - target: {fileID: 2180374938999896097, guid: 924e0efaa2d9eee48937d07e2746d70a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2180374938999896101, guid: 924e0efaa2d9eee48937d07e2746d70a,
         type: 3}
       propertyPath: PanelNum
@@ -6617,6 +6663,12 @@ PrefabInstance:
 --- !u!224 &8600294149303279642 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2180374938999896096, guid: 924e0efaa2d9eee48937d07e2746d70a,
+    type: 3}
+  m_PrefabInstance: {fileID: 7572906686153168954}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8600294149303279643 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2180374938999896097, guid: 924e0efaa2d9eee48937d07e2746d70a,
     type: 3}
   m_PrefabInstance: {fileID: 7572906686153168954}
   m_PrefabAsset: {fileID: 0}
@@ -6872,6 +6924,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: KaniPiece
       objectReference: {fileID: 0}
+    - target: {fileID: 2180374938999896097, guid: 924e0efaa2d9eee48937d07e2746d70a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2180374938999896101, guid: 924e0efaa2d9eee48937d07e2746d70a,
         type: 3}
       propertyPath: PanelNum
@@ -6898,6 +6955,12 @@ PrefabInstance:
 --- !u!224 &8600294148951442846 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2180374938999896096, guid: 924e0efaa2d9eee48937d07e2746d70a,
+    type: 3}
+  m_PrefabInstance: {fileID: 7572906686472502718}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8600294148951442847 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2180374938999896097, guid: 924e0efaa2d9eee48937d07e2746d70a,
     type: 3}
   m_PrefabInstance: {fileID: 7572906686472502718}
   m_PrefabAsset: {fileID: 0}
@@ -7018,6 +7081,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ZebraPiece
       objectReference: {fileID: 0}
+    - target: {fileID: 2180374938999896097, guid: 924e0efaa2d9eee48937d07e2746d70a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2180374938999896101, guid: 924e0efaa2d9eee48937d07e2746d70a,
         type: 3}
       propertyPath: PanelNum
@@ -7046,6 +7114,12 @@ PrefabInstance:
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 924e0efaa2d9eee48937d07e2746d70a, type: 3}
+--- !u!1 &8600294149169717206 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2180374938999896097, guid: 924e0efaa2d9eee48937d07e2746d70a,
+    type: 3}
+  m_PrefabInstance: {fileID: 7572906686556481527}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &8600294149169717207 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2180374938999896096, guid: 924e0efaa2d9eee48937d07e2746d70a,
@@ -7169,6 +7243,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TunaPiece
       objectReference: {fileID: 0}
+    - target: {fileID: 2180374938999896097, guid: 924e0efaa2d9eee48937d07e2746d70a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2180374938999896101, guid: 924e0efaa2d9eee48937d07e2746d70a,
         type: 3}
       propertyPath: PanelNum
@@ -7192,6 +7271,12 @@ PrefabInstance:
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 924e0efaa2d9eee48937d07e2746d70a, type: 3}
+--- !u!1 &8600294149116516024 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2180374938999896097, guid: 924e0efaa2d9eee48937d07e2746d70a,
+    type: 3}
+  m_PrefabInstance: {fileID: 7572906686629113497}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &8600294149116516025 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2180374938999896096, guid: 924e0efaa2d9eee48937d07e2746d70a,
@@ -7315,6 +7400,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LionPiece
       objectReference: {fileID: 0}
+    - target: {fileID: 2180374938999896097, guid: 924e0efaa2d9eee48937d07e2746d70a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2180374938999896101, guid: 924e0efaa2d9eee48937d07e2746d70a,
         type: 3}
       propertyPath: PanelNum
@@ -7338,6 +7428,12 @@ PrefabInstance:
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 924e0efaa2d9eee48937d07e2746d70a, type: 3}
+--- !u!1 &8600294148855259412 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2180374938999896097, guid: 924e0efaa2d9eee48937d07e2746d70a,
+    type: 3}
+  m_PrefabInstance: {fileID: 7572906686904785205}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &8600294148855259413 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2180374938999896096, guid: 924e0efaa2d9eee48937d07e2746d70a,
@@ -7461,6 +7557,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MonekyPiece
       objectReference: {fileID: 0}
+    - target: {fileID: 2180374938999896097, guid: 924e0efaa2d9eee48937d07e2746d70a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2180374938999896101, guid: 924e0efaa2d9eee48937d07e2746d70a,
         type: 3}
       propertyPath: PanelNum
@@ -7487,6 +7588,12 @@ PrefabInstance:
 --- !u!224 &8600294148613772204 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2180374938999896096, guid: 924e0efaa2d9eee48937d07e2746d70a,
+    type: 3}
+  m_PrefabInstance: {fileID: 7572906687200111500}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8600294148613772205 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2180374938999896097, guid: 924e0efaa2d9eee48937d07e2746d70a,
     type: 3}
   m_PrefabInstance: {fileID: 7572906687200111500}
   m_PrefabAsset: {fileID: 0}
@@ -7877,6 +7984,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BunchoPiece
       objectReference: {fileID: 0}
+    - target: {fileID: 2180374938999896097, guid: 924e0efaa2d9eee48937d07e2746d70a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2180374938999896101, guid: 924e0efaa2d9eee48937d07e2746d70a,
         type: 3}
       propertyPath: puzzleUI
@@ -7884,6 +7996,12 @@ PrefabInstance:
       objectReference: {fileID: 1050712064}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 924e0efaa2d9eee48937d07e2746d70a, type: 3}
+--- !u!1 &7572906687395218926 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2180374938999896097, guid: 924e0efaa2d9eee48937d07e2746d70a,
+    type: 3}
+  m_PrefabInstance: {fileID: 8600294148397858255}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &7572906687395218927 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2180374938999896096, guid: 924e0efaa2d9eee48937d07e2746d70a,

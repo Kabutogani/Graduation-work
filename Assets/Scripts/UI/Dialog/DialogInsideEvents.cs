@@ -44,4 +44,8 @@ public class DialogInsideEvents : MonoBehaviour
         this.gameObject.SetActive(false);
         this.gameObject.GetComponent<LionPanel>().ChangeDataValue(0,"false");
     }
+
+    public void InteractPazzle(){
+        this.gameObject.GetComponent<PuzzleMain>().EnablePuzzle();
+    }
 }

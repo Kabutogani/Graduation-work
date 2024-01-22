@@ -14716,6 +14716,44 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   puzzleUI: {fileID: 0}
+  panelNames:
+  - "\u6587\u9CE5\u306E\u30D4\u30FC\u30B9"
+  - "\u30B5\u30EB\u306E\u30D4\u30FC\u30B9"
+  - "\u30B7\u30DE\u30A6\u30DE\u306E\u30D4\u30FC\u30B9"
+  - "\u30AB\u30CB\u306E\u30D4\u30FC\u30B9"
+  - "\u30A6\u30DF\u30A6\u30B7\u306E\u30D4\u30FC\u30B9"
+  - "\u30E9\u30A4\u30AA\u30F3\u306E\u30D4\u30FC\u30B9"
+  - "\u30DE\u30B0\u30ED\u306E\u30D4\u30FC\u30B9"
+--- !u!114 &1690672213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 472588805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1749bf82ac9e414cbab8e66c19170ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textFile:
+  - {fileID: 4900000, guid: 92ab31802ad3f2340bba1f84f1bab40a, type: 3}
+  - {fileID: 4900000, guid: b4ebd316254232b48a821d0b4f534bf5, type: 3}
+  - {fileID: 4900000, guid: 443ec8c3bce016b4894fcf7978c2551c, type: 3}
+--- !u!114 &1690672214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 472588805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c72733592a0727f48a75ae03b74bfe9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemObj: []
+  enemy: {fileID: 0}
 --- !u!1001 &1694597308
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21376,6 +21414,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1050712064, guid: 5263212081e73784994cc80b709f2a6b, type: 3}
+      propertyPath: itemObj
+      value: 
+      objectReference: {fileID: 1562994066760760908, guid: 3dd9b7462a470604ea8e9c82ae8539a2,
+        type: 3}
     - target: {fileID: 2076062255, guid: 5263212081e73784994cc80b709f2a6b, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

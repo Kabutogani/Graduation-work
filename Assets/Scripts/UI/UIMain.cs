@@ -40,6 +40,10 @@ public class UIMain : MonoBehaviour
         _configUIObj.SetActive(i);
     }
 
+    public void PushExitButton(){
+        ExitGame.EndApplication();
+    }
+
     void Awake(){
         if(instance == null){
             instance = this;
